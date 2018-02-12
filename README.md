@@ -17,7 +17,7 @@ Skeleton of participants module
 - Rubén García Ruiz (@RubenGarciaR)
 - Sonia Gestal Huelga (@sonia94)
 - Luis Irazusta Lorenzo (@Fuegon)
-
+_____________________________________________
 - Saúl Castillo Valdés (@saulcasti)
 - Pelayo Díaz Soto (@PelayoDiaz)
 - Amelia Fernández Braña (@ameliafb)

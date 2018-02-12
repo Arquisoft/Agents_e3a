@@ -22,6 +22,11 @@ _____________________________________________
 - Francisco Javier Riedemann Wistuba (@FJss23)
 
 # Funcionamiento:
+## Ejecución del código
+1. Para el código utilizar la orden: mvn compile
+2. Para ejecutarlo utilizamos: mvn spring-boot:run
+3. Para comprobar el funcionamiento de los test: mvn test
+
 ## Interfaz HTML
 1. Escribir en el navegador: http://localhost:8080/
 2. Proporcionar los datos de login para los usuarios disponibles:

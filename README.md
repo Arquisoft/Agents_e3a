@@ -18,6 +18,11 @@ Skeleton of participants module
 - Sonia Gestal Huelga (@sonia94)
 - Luis Irazusta Lorenzo (@Fuegon)
 
+- Saúl Castillo Valdés (@saulcasti)
+- Pelayo Díaz Soto (@PelayoDiaz)
+- Amelia Fernández Braña (@ameliafb)
+- Francisco Javier Riedemann Wistuba (@FJss23)
+
 # Funcionamiento:
 ## Interfaz HTML
 1. Escribir en el navegador: http://localhost:8080/

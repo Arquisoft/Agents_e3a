@@ -44,12 +44,14 @@ _____________________________________________
    
    Acepta peticiones POST en formato JSON con el contenido:
    ``{"login":"login_usuario", "password":"contraseña_usuario"}``
+   (Se puede probar en el Advanced REST Client de Google)
    
    Devuelve la informacion del usuario si las credenciales en formato 
    JSON o XML segun se indique en la cabecera de la petición.
    
    Si los datos no son correctos se devuelve un error HTTP 404.
    Si los parametros no son correctos se devuelve un codigo de error HTTP 406.
+   
    
 ### Formato de retorn JSON
    ```json

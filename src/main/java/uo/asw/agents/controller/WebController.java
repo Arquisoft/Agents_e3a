@@ -1,4 +1,4 @@
-package uo.asw.participants.controller;
+package uo.asw.agents.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import uo.asw.dbManagement.CitizenDAO;
-import uo.asw.dbManagement.model.Citizen;
-import uo.asw.participants.util.Check;
+import uo.asw.agents.util.Check;
+import uo.asw.dbManagement.LoaderDAO;
+import uo.asw.dbManagement.model.Loader;
 
 @Controller
 public class WebController {
@@ -51,7 +51,7 @@ public class WebController {
 	// }
 
 	@Autowired
-	private CitizenDAO cc;
+	private LoaderDAO cc;
 
 	/**
 	 * Recibe los datos de login del usuario, busca si exite ese usuario y en
@@ -70,12 +70,12 @@ public class WebController {
 	@RequestMapping(value = "/info", method = RequestMethod.POST)
 	public String showInfo(HttpSession session, @RequestParam String user, @RequestParam String password, Model model) {
 
-		Citizen c = null;
+		Loader c = null;
 
 		if (user != null && password != null) {
-			c = cc.getParticipant(user, password);
+			c = cc.getAgents(user, password);
 			if (c != null) {
-				session.setAttribute("citizen", c);
+				session.setAttribute("loader", c);
 				model.addAttribute("resultado", "Bienvenid@ " + c.getNombre());
 				return "view";
 			}
@@ -111,7 +111,7 @@ public class WebController {
 	@RequestMapping(value = "/changeInfo", method = RequestMethod.POST)
 	public String changePassword(HttpSession session, @RequestParam String password, @RequestParam String newPassword,
 			Model model) {
-		Citizen c = (Citizen) session.getAttribute("citizen");
+		Loader c = (Loader) session.getAttribute("loader");
 		if (c != null) {
 			if (c.getContraseña().equals(password) && !newPassword.isEmpty()) {
 				c.setContraseña(newPassword);
@@ -137,7 +137,7 @@ public class WebController {
 	 */
 	@RequestMapping(value = "/changeEmail", method = RequestMethod.POST)
 	public String changeEmail(HttpSession session, @RequestParam String email, Model model){
-		Citizen c = (Citizen) session.getAttribute("citizen");
+		Loader c = (Loader) session.getAttribute("loader");
 		if(c != null){
 			if(!email.isEmpty() && Check.validateEmail(email)){
 				c.setEmail(email);

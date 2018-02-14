@@ -10,7 +10,7 @@
 			<tr>
 				<td>Email:</td>
 				<td><input type="text" name="email" required="required"
-					 th:value="${session.citizen.email}" th:placeholder = "${session.citizen.email}"/></td>
+					 th:value="${session.loader.email}" th:placeholder = "${session.loader.email}"/></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" name="updateEmial"
@@ -21,19 +21,19 @@
    <table>
     <tr>
         <td>Nombre: </td>
-        <td><span th:text="${session.citizen.nombre}"/></td>
+        <td><span th:text="${session.loader.nombre}"/></td>
     </tr>
     <tr>
         <td>Apellidos: </td>
-        <td><span th:text="${session.citizen.apellidos}"/></td>
+        <td><span th:text="${session.loader.apellidos}"/></td>
     </tr>
     <tr>
     	<td>Direccion: </td>
-    	<td><span th:text="${session.citizen.direccionPostal}"/></td>
+    	<td><span th:text="${session.loader.direccionPostal}"/></td>
     </tr>
     <tr>
     	<td>Nacionalidad: </td>
-    	<td><span th:text="${session.citizen.nacionalidad}"/></td>
+    	<td><span th:text="${session.loader.nacionalidad}"/></td>
     </tr>
     <tr>
     	<td><a href="changeInfo">Modificar datos</a></td>

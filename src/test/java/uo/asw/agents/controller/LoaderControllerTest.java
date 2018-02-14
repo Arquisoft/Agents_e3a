@@ -1,4 +1,4 @@
-package uo.asw.participants.controller;
+package uo.asw.agents.controller;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,8 +16,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import uo.asw.Application;
-import uo.asw.dbManagement.CitizenDAO;
-import uo.asw.dbManagement.model.Citizen;
+import uo.asw.dbManagement.LoaderDAO;
+import uo.asw.dbManagement.model.Loader;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -40,7 +40,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Plantillas para los tests extraidos de los tutoriales de Spring (https://spring.io/guides/tutorials/bookmarks/)
  * @since 0.0.1
  */
-public class CitizenControllerTest {
+public class LoaderControllerTest {
 
     private MockMvc mockMvc;
     @SuppressWarnings("rawtypes")
@@ -64,7 +64,7 @@ public class CitizenControllerTest {
             Charset.forName("utf8"));
 
     @Autowired
-    private CitizenDAO citizenDAO;
+    private LoaderDAO loaderDAO;
 
     @Before
     public void setUp() throws Exception {
@@ -83,7 +83,7 @@ public class CitizenControllerTest {
             }
         };
 
-        Citizen c = citizenDAO.getParticipant("juan", "1234");
+        Loader c = loaderDAO.getAgents("juan", "1234");
         mockMvc.perform(post("/user")
                 .content(this.json(payload))
                 .contentType(JSONContentType))
@@ -162,7 +162,7 @@ public class CitizenControllerTest {
             }
         };
 
-        Citizen c = citizenDAO.getParticipant("juan", "1234");
+        Loader c = loaderDAO.getAgents("juan", "1234");
         mockMvc.perform(post("/user")
                 .content(this.json(payload))
                 .contentType(JSONContentType)

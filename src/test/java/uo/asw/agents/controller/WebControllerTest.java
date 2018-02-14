@@ -1,4 +1,4 @@
-package uo.asw.participants.controller;
+package uo.asw.agents.controller;
 
 import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -19,8 +19,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import uo.asw.Application;
-import uo.asw.dbManagement.CitizenDAO;
-import uo.asw.dbManagement.model.Citizen;
+import uo.asw.dbManagement.LoaderDAO;
+import uo.asw.dbManagement.model.Loader;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -34,7 +34,7 @@ public class WebControllerTest {
     private MockMvc mockMvc;
     
     @Autowired
-    private CitizenDAO citizenDAO;
+    private LoaderDAO loaderDAO;
      
     @Before
     public void init() {
@@ -99,13 +99,13 @@ public class WebControllerTest {
    @Test
    public void changePasswordTest1() throws Exception {
    	
-	   Citizen c = citizenDAO.getParticipant("juan", "1234");
+	   Loader c = loaderDAO.getAgents("juan", "1234");
 
 	   //Cambio de contraseña
        mockMvc.perform(post("/changeInfo")
     	.param("password", "1234")
 		.param("newPassword", "new")
-		.sessionAttr("citizen", c))
+		.sessionAttr("loader", c))
         .andExpect(status().isOk())
     	.andExpect(view().name("view"));
 
@@ -113,7 +113,7 @@ public class WebControllerTest {
        mockMvc.perform(post("/changeInfo")
     	.param("password", "new")
 		.param("newPassword", "1234")
-		.sessionAttr("citizen", c))
+		.sessionAttr("loader", c))
         .andExpect(status().isOk())
      	.andExpect(view().name("view"));
        
@@ -123,12 +123,12 @@ public class WebControllerTest {
    //Contraseña incorrecta
    public void changePasswordTest2() throws Exception {
    	
-	   Citizen c = citizenDAO.getParticipant("juan", "1234");
+	   Loader c = loaderDAO.getAgents("juan", "1234");
 
        mockMvc.perform(post("/changeInfo")
     	.param("password", "password")
 		.param("newPassword", "new")
-		.sessionAttr("citizen", c))
+		.sessionAttr("loader", c))
     	.andExpect(view().name("errorContrasena"));
        
    }
@@ -136,12 +136,12 @@ public class WebControllerTest {
    @Test
    public void changeEmailTest1() throws Exception {
    	
-	   Citizen c = citizenDAO.getParticipant("juan", "1234");
+	   Loader c = loaderDAO.getAgents("juan", "1234");
 
 	   //Cambio de email
        mockMvc.perform(post("/changeEmail")
     	.param("email", "juanNuevo@gmail.com")
-		.sessionAttr("citizen", c))
+		.sessionAttr("loader", c))
         .andExpect(status().isOk())
     	.andExpect(view().name("view"));
 
@@ -150,7 +150,7 @@ public class WebControllerTest {
 	   //Cambio de email de nuevo por el original
        mockMvc.perform(post("/changeEmail")
     	.param("email", "juan@gmail.com")
-		.sessionAttr("citizen", c))
+		.sessionAttr("loader", c))
         .andExpect(status().isOk())
      	.andExpect(view().name("view"));
        

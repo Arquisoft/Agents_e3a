@@ -15,8 +15,8 @@ import java.util.Date;
 
 @XmlRootElement
 @Entity
-@Table(name = "citizen")
-public class Citizen {
+@Table(name = "loader")
+public class Loader {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,11 +43,11 @@ public class Citizen {
 	@NotNull
 	private String nacionalidad;
 	
-	public Citizen(){}
+	public Loader(){}
 	
 	
 
-	public Citizen(String contraseña, String nombreUsuario, String dni,
+	public Loader(String contraseña, String nombreUsuario, String dni,
 			String nombre, String apellidos, Date fechaNacimiento,
 			String email, String direccionPostal, String nacionalidad) {
 		super();
@@ -154,7 +154,7 @@ public class Citizen {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Citizen other = (Citizen) obj;
+		Loader other = (Loader) obj;
 		if (dni == null) {
 			if (other.dni != null)
 				return false;
@@ -165,7 +165,7 @@ public class Citizen {
 
 	@Override
 	public String toString() {
-		return "Citizen [contraseña=" + contraseña + ", nombreUsuario="
+		return "Loader [contraseña=" + contraseña + ", nombreUsuario="
 				+ nombreUsuario + ", dni=" + dni + ", nombre=" + nombre
 				+ ", apellidos=" + apellidos + ", fechaNacimiento="
 				+ fechaNacimiento + ", email=" + email + ", direccionPostal="

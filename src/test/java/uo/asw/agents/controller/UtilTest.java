@@ -1,4 +1,4 @@
-package uo.asw.participants.controller;
+package uo.asw.agents.controller;
 
 import static org.junit.Assert.*;
 
@@ -15,9 +15,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import uo.asw.Application;
-import uo.asw.participants.util.Check;
-import uo.asw.participants.util.CitizenMin;
-import uo.asw.participants.util.DateUtil;
+import uo.asw.agents.util.Check;
+import uo.asw.agents.util.LoaderMin;
+import uo.asw.agents.util.DateUtil;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,7 +27,7 @@ public class UtilTest {
 
 	
 	private static String[] validEmails, invalidEmails;
-	private CitizenMin citizenMin;
+	private LoaderMin loaderMin;
 	
 	 /**
      * Carga de datos
@@ -52,7 +52,7 @@ public class UtilTest {
 	
     @Before
     public void setUp() throws Exception {
-    	citizenMin = new CitizenMin("nombre", "apellido", new Date(), (long) 1, "usuario@gmail.com");
+    	loaderMin = new LoaderMin("nombre", "apellido", new Date(), (long) 1, "usuario@gmail.com");
     }
 
 	@Test
@@ -65,18 +65,18 @@ public class UtilTest {
 		int edad = DateUtil.getYears(fechaNacimiento);
 		String email = "fernando@gmail.com";
 
-		citizenMin.setId(id);
-		citizenMin.setFirstName(nombre);
-		citizenMin.setLastName(apellidos);
-		citizenMin.setEdad(edad);
-		citizenMin.setEmail(email);
+		loaderMin.setId(id);
+		loaderMin.setFirstName(nombre);
+		loaderMin.setLastName(apellidos);
+		loaderMin.setEdad(edad);
+		loaderMin.setEmail(email);
 
 	
-		assertEquals(id, citizenMin.getId());
-		assertEquals(nombre, citizenMin.getFirstName());
-		assertEquals(apellidos, citizenMin.getLastName());
-		assertEquals(edad, citizenMin.getEdad());
-		assertEquals(email, citizenMin.getEmail());
+		assertEquals(id, loaderMin.getId());
+		assertEquals(nombre, loaderMin.getFirstName());
+		assertEquals(apellidos, loaderMin.getLastName());
+		assertEquals(edad, loaderMin.getEdad());
+		assertEquals(email, loaderMin.getEmail());
 		
 	}
 	

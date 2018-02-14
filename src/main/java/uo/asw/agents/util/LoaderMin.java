@@ -1,8 +1,8 @@
-package uo.asw.participants.util;
+package uo.asw.agents.util;
 
 import java.util.Date;
 
-public class CitizenMin {
+public class LoaderMin {
 
 	private String firstName;
 	private String lastName;
@@ -12,7 +12,7 @@ public class CitizenMin {
 	
 	
 	
-	public CitizenMin(String firstName, String lastName, Date fechaNacimiento, Long id,
+	public LoaderMin(String firstName, String lastName, Date fechaNacimiento, Long id,
 			String email) {
 		super();
 		this.firstName = firstName;
@@ -56,7 +56,7 @@ public class CitizenMin {
 
 	@Override
 	public String toString() {
-		return "CitizenMin [firstName=" + firstName + ", lastName=" + lastName
+		return "LoaderMin [firstName=" + firstName + ", lastName=" + lastName
 				+ ", edad=" + edad + ", id=" + id + ", email=" + email + "]";
 	}
 	

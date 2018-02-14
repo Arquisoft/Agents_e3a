@@ -1,6 +1,6 @@
 --DROP TABLE citizen IF EXISTS;
 
-CREATE TABLE citizen (
+CREATE TABLE loader (
   id      BIGINT PRIMARY KEY,
   contrasena VARCHAR(30),
   nombreUsuario  VARCHAR(50),

@@ -99,7 +99,7 @@ public class WebControllerTest {
    @Test
    public void changePasswordTest1() throws Exception {
    	
-	   Loader c = loaderDAO.getAgents("juan", "1234");
+	   Loader c = loaderDAO.getAgents("juan", "1234", "admin");
 
 	   //Cambio de contraseña
        mockMvc.perform(post("/changeInfo")
@@ -123,7 +123,7 @@ public class WebControllerTest {
    //Contraseña incorrecta
    public void changePasswordTest2() throws Exception {
    	
-	   Loader c = loaderDAO.getAgents("juan", "1234");
+	   Loader c = loaderDAO.getAgents("juan", "1234", "admin");
 
        mockMvc.perform(post("/changeInfo")
     	.param("password", "password")
@@ -136,7 +136,7 @@ public class WebControllerTest {
    @Test
    public void changeEmailTest1() throws Exception {
    	
-	   Loader c = loaderDAO.getAgents("juan", "1234");
+	   Loader c = loaderDAO.getAgents("juan", "1234", "admin");
 
 	   //Cambio de email
        mockMvc.perform(post("/changeEmail")

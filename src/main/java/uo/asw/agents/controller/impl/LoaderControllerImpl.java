@@ -20,7 +20,7 @@ import java.util.Map;
 public class LoaderControllerImpl implements LoaderController {
 
 	@Autowired
-	private AgentsService participantsService;
+	private AgentsService agentsService;
 
 	@Override
 	@RequestMapping(value = "/user", method = RequestMethod.POST,
@@ -31,10 +31,11 @@ public class LoaderControllerImpl implements LoaderController {
 		//	return new ResponseEntity<CitizenMin>(HttpStatus.BAD_REQUEST);
 		//}
 
-		String login, password;
+		String login, password, kind;
 		login = (String) payload.get("login");
 		password = (String) payload.get("password");
-		LoaderMin c = participantsService.getAgentsInfo(login, password);
+		kind = "admin";
+		LoaderMin c = agentsService.getAgentsInfo(login, password, kind);
 		if(c == null){
 			return new ResponseEntity<LoaderMin>(HttpStatus.NOT_FOUND);
 		}

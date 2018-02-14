@@ -3,6 +3,7 @@
 CREATE TABLE loader (
   id      BIGINT PRIMARY KEY,
   contrasena VARCHAR(30),
+  kind VARCHAR(50),
   nombreUsuario  VARCHAR(50),
   dni VARCHAR(50),
   nombre VARCHAR(50),

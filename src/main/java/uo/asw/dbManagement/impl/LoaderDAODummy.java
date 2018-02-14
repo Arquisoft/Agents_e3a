@@ -27,11 +27,15 @@ public class LoaderDAODummy implements LoaderDAO {
     }
 
     @Override
-    public Loader getAgents(String login, String password) {
-    	@SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
+    public Loader getAgents(String login, String password, String kind) {
 		List<Loader> loader =  entityManager.createQuery(
-    	        "from Loader where nombreUsuario = ?1 and contraseña = ?2")
-    	        .setParameter(1, login).setParameter(2, password)
+    	        "from Loader where nombreUsuario = ?1 "
+    	        + "and contraseña = ?2 "
+    	        + "and kind = ?3")
+    	        .setParameter(1, login)
+    	        .setParameter(2, password)
+    	        .setParameter(3, kind)
     	        .getResultList();
     	if(loader.isEmpty())
     		return null;

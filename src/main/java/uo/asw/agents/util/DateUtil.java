@@ -1,5 +1,7 @@
 package uo.asw.agents.util;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -15,23 +17,11 @@ public class DateUtil {
 	 * @return anyos de la persona
 	 */
 	public static int getYears(Date fechaNacimiento) {
-
-		Calendar fechaActual = Calendar.getInstance();
-		int hoyDia = fechaActual.get(Calendar.DAY_OF_YEAR);
-
-		Calendar nacimiento = Calendar.getInstance();
-
-		nacimiento.setTime(fechaNacimiento);
-		int nacimientoDia = nacimiento.get(Calendar.DAY_OF_YEAR);
-
-		// Todavía no ha cumplido los años
-		if (nacimientoDia - hoyDia < 0)
-			return fechaActual.get(Calendar.YEAR)
-					- nacimiento.get(Calendar.YEAR) - 1;
-		else
-			// Ya ha cumplido los años
-			return fechaActual.get(Calendar.YEAR)
-					- nacimiento.get(Calendar.YEAR);
-
+		Calendar cc = Calendar.getInstance();
+		cc.setTime(fechaNacimiento);
+		LocalDate birthdate = LocalDate.of(cc.get(Calendar.YEAR), cc.get(Calendar.MONTH) + 1, cc.get(Calendar.DAY_OF_MONTH));
+		LocalDate now = LocalDate.now();
+		Long years = ChronoUnit.YEARS.between(birthdate, now);
+		return years.intValue();
 	}
 }

@@ -2,8 +2,13 @@ package uo.asw.agents.controller;
 
 import static org.junit.Assert.*;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Year;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.junit.Before;
@@ -11,6 +16,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.format.datetime.joda.LocalDateParser;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
@@ -84,19 +90,25 @@ public class UtilTest {
 	@Test
 	public void dateUtilTest() throws ParseException {
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
 		
 		//Ya ha cumplido años
 		String dateString1 = "10-02-1990";
-		Date date1 = sdf.parse(dateString1);
+		Date date1 = formatter.parse(dateString1);
 		int edad1 = DateUtil.getYears(date1);
-		assertEquals(26, edad1);
+	    int d1 = Integer.parseInt(formatter.format(date1));
+	    int d2 = Integer.parseInt(formatter.format(Calendar.getInstance().getTime()));
+	    int age = (d2-d1)/10000;
+		assertEquals(age, edad1);
 
 		//Aun no ha cumplido años
 		String dateString2 = "10-08-1990";
-		Date date2 = sdf.parse(dateString2);
+		Date date2 = formatter.parse(dateString2);
 		int edad2 = DateUtil.getYears(date2);
-		assertEquals(27, edad2);
+	    int d3 = Integer.parseInt(formatter.format(date2));
+	    int d4 = Integer.parseInt(formatter.format(Calendar.getInstance().getTime()));
+	    int age2 = (d4-d3)/10000;
+		assertEquals(age2, edad2);
 	}
 	
 	@Test

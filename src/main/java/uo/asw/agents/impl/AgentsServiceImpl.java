@@ -18,7 +18,7 @@ public class AgentsServiceImpl implements AgentsService {
 
     @Override
     public LoaderMin getAgentsInfo(String login, String password, String kind) {
-       Loader c = loaderDAO.getAgents(login, password, kind);
+       Loader c = loaderDAO.getAgent(login, password, kind);
        if(c != null){
     	   return new LoaderMin(c.getNombre(), c.getApellidos(), c.getFechaNacimiento(), c.getId(), c.getEmail());
        }

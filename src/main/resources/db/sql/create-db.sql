@@ -1,4 +1,4 @@
---DROP TABLE citizen IF EXISTS;
+--DROP TABLE loader IF EXISTS;
 
 CREATE TABLE loader (
   id      BIGINT PRIMARY KEY,

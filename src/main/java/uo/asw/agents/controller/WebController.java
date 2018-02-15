@@ -74,7 +74,7 @@ public class WebController {
 		Loader c = null;
 
 		if (user != null && password != null && kind != null) { //CAMBIAR
-			c = cc.getAgents(user, password, "admin");
+			c = cc.getAgent(user, password, "admin");
 			if (c != null) {
 				session.setAttribute("loader", c);
 				model.addAttribute("resultado", "Bienvenid@ " + c.getNombre());

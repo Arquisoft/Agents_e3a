@@ -54,7 +54,6 @@ public class WebControllerTest {
       	.andExpect(view().name("view"));
     	
     }
-
     //EL RESTO DE TESTS QUE FALLAN AÑADIR LA LÍNEA AÑADIDA EN EL ANTERIOR
     
     @Test

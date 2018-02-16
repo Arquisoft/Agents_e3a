@@ -47,13 +47,15 @@ public class WebControllerTest {
 
       mockMvc.perform(post("/info")
 		.param("user", "juan")
-		.param("password", "1234"))
+		.param("password", "1234")
+		.param("kind", "person")) //<---Añadir esta linea variandola para cada test a corregir
       	.andExpect(status().isOk())
       	.andExpect(model().attributeExists("resultado"))
       	.andExpect(view().name("view"));
     	
     }
 
+    //EL RESTO DE TESTS QUE FALLAN AÑADIR LA LÍNEA AÑADIDA EN EL ANTERIOR
     
     @Test
     //usuario incorrecto
@@ -99,7 +101,7 @@ public class WebControllerTest {
    @Test
    public void changePasswordTest1() throws Exception {
    	
-	   Loader c = loaderDAO.getAgents("juan", "1234");
+	   Loader c = loaderDAO.getAgent("juan", "1234", "person");
 
 	   //Cambio de contraseña
        mockMvc.perform(post("/changeInfo")
@@ -123,7 +125,7 @@ public class WebControllerTest {
    //Contraseña incorrecta
    public void changePasswordTest2() throws Exception {
    	
-	   Loader c = loaderDAO.getAgents("juan", "1234");
+	   Loader c = loaderDAO.getAgent("juan", "1234", "person");
 
        mockMvc.perform(post("/changeInfo")
     	.param("password", "password")
@@ -136,7 +138,7 @@ public class WebControllerTest {
    @Test
    public void changeEmailTest1() throws Exception {
    	
-	   Loader c = loaderDAO.getAgents("juan", "1234");
+	   Loader c = loaderDAO.getAgent("juan", "1234", "person");
 
 	   //Cambio de email
        mockMvc.perform(post("/changeEmail")

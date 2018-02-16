@@ -13,20 +13,21 @@ import uo.asw.dbManagement.model.Loader;
  */
 @Service
 public class AgentsServiceImpl implements AgentsService {
-    @Autowired
-    private LoaderDAO loaderDAO;
+	@Autowired
+	private LoaderDAO loaderDAO;
 
-    @Override
-    public LoaderMin getAgentsInfo(String login, String password) {
-       Loader c = loaderDAO.getAgents(login, password);
-       if(c != null){
-    	   return new LoaderMin(c.getNombre(), c.getApellidos(), c.getFechaNacimiento(), c.getId(), c.getEmail());
-       }
-       return null;
-    }
+	@Override
+	public LoaderMin getAgentsInfo(String login, String password) {
+		String kind = "person";
+		Loader c = loaderDAO.getAgent(login, password, kind);
+		if (c != null) {
+			return new LoaderMin(c.getNombre(), c.getApellidos(), c.getFechaNacimiento(), c.getId(), c.getEmail());
+		}
+		return null;
+	}
 
-    @Override
-    public Loader changeInfo(Loader updatedData) {
-        return loaderDAO.updateInfo(updatedData);
-    }
+	@Override
+	public Loader changeInfo(Loader updatedData) {
+		return loaderDAO.updateInfo(updatedData);
+	}
 }

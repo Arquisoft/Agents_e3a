@@ -27,6 +27,8 @@ public class Loader {
 	@NotNull
 	private String nombreUsuario;
 	@NotNull
+	private String kind;
+	@NotNull
 	@Column(unique = true)
 	private String dni;
 	@NotNull
@@ -49,7 +51,7 @@ public class Loader {
 
 	public Loader(String contraseña, String nombreUsuario, String dni,
 			String nombre, String apellidos, Date fechaNacimiento,
-			String email, String direccionPostal, String nacionalidad) {
+			String email, String direccionPostal, String nacionalidad, String kind) {
 		super();
 		this.contraseña = contraseña;
 		this.nombreUsuario = nombreUsuario;
@@ -60,6 +62,7 @@ public class Loader {
 		this.email = email;
 		this.direccionPostal = direccionPostal;
 		this.nacionalidad = nacionalidad;
+		this.kind = kind;
 	}
 
 
@@ -169,7 +172,8 @@ public class Loader {
 				+ nombreUsuario + ", dni=" + dni + ", nombre=" + nombre
 				+ ", apellidos=" + apellidos + ", fechaNacimiento="
 				+ fechaNacimiento + ", email=" + email + ", direccionPostal="
-				+ direccionPostal + ", nacionalidad=" + nacionalidad + "]";
+				+ direccionPostal + ", nacionalidad=" + nacionalidad 
+				+ ", tipo=" + kind +"]";
 	}
 	
 	

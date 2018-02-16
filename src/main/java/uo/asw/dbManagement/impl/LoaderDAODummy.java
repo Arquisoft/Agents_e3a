@@ -23,7 +23,8 @@ public class LoaderDAODummy implements LoaderDAO {
     private EntityManager entityManager;
     
     static {
-        dummyLoader = new Loader("pass", "dummy", "123456", "Clara", "Oswald", new Date(), "clara@tardis.co.uk", "The Hyperspace", "Inglesa");
+        dummyLoader = new Loader("pass", "dummy", "123456", "Clara", "Oswald", new Date(),
+        		"clara@tardis.co.uk", "The Hyperspace", "Inglesa", "person");
     }
 
     @Override

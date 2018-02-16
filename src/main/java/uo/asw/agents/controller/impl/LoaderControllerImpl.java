@@ -31,11 +31,10 @@ public class LoaderControllerImpl implements LoaderController {
 		//	return new ResponseEntity<CitizenMin>(HttpStatus.BAD_REQUEST);
 		//}
 
-		String login, password, kind;
+		String login, password;
 		login = (String) payload.get("login");
 		password = (String) payload.get("password");
-		kind = "admin";
-		LoaderMin c = agentsService.getAgentsInfo(login, password, kind);
+		LoaderMin c = agentsService.getAgentsInfo(login, password);
 		if(c == null){
 			return new ResponseEntity<LoaderMin>(HttpStatus.NOT_FOUND);
 		}

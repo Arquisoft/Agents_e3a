@@ -83,7 +83,7 @@ public class LoaderControllerTest {
             }
         };
 
-        Loader c = loaderDAO.getAgent("juan", "1234", "admin");
+        Loader c = loaderDAO.getAgent("juan", "1234", "person");
         mockMvc.perform(post("/user")
                 .content(this.json(payload))
                 .contentType(JSONContentType))
@@ -162,7 +162,7 @@ public class LoaderControllerTest {
             }
         };
 
-        Loader c = loaderDAO.getAgent("juan", "1234", "admin");
+        Loader c = loaderDAO.getAgent("juan", "1234", "person");
         mockMvc.perform(post("/user")
                 .content(this.json(payload))
                 .contentType(JSONContentType)

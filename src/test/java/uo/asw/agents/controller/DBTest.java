@@ -24,9 +24,9 @@ public class DBTest {
 	
 	@Test
     public void getExistingCitizen() throws Exception {
-    	Loader c1 = loaderDAO.getAgent("juan", "1234", "admin");
-    	Loader c2 = loaderDAO.getAgent("pedro", "1234", "user");
-    	Loader c3 = loaderDAO.getAgent("raul", "1234", "user");
+    	Loader c1 = loaderDAO.getAgent("juan", "1234", "person");
+    	Loader c2 = loaderDAO.getAgent("pedro", "1234", "entity");
+    	Loader c3 = loaderDAO.getAgent("raul", "1234", "sensor");
 
 		assertEquals("juan", c1.getNombreUsuario());
 		assertEquals("1234", c1.getContraseña());
@@ -40,9 +40,9 @@ public class DBTest {
     
     @Test
     public void getNonExistingCitizen() throws Exception {
-    	Loader c1 = loaderDAO.getAgent("antonio", "1234", "something");
-    	Loader c2 = loaderDAO.getAgent("daniel", "1234", "somethingelse");
-    	Loader c3 = loaderDAO.getAgent("rodrigo", "1234", "admin");
+    	Loader c1 = loaderDAO.getAgent("antonio", "1234", "entity");
+    	Loader c2 = loaderDAO.getAgent("daniel", "1234", "sensor");
+    	Loader c3 = loaderDAO.getAgent("rodrigo", "1234", "person");
 
     	assertNull(c1);
     	assertNull(c2);
@@ -53,9 +53,9 @@ public class DBTest {
     @Test
     public void wrongPasswordTest() throws Exception {
     	
-    	Loader c1 = loaderDAO.getAgent("juan", "password", "admin");
-    	Loader c2 = loaderDAO.getAgent("pedro", "password", "user");
-    	Loader c3 = loaderDAO.getAgent("raul", "password", "user");
+    	Loader c1 = loaderDAO.getAgent("juan", "password", "person");
+    	Loader c2 = loaderDAO.getAgent("pedro", "password", "entity");
+    	Loader c3 = loaderDAO.getAgent("raul", "password", "sensor");
     	
     	assertNull(c1);
     	assertNull(c2);
@@ -63,11 +63,11 @@ public class DBTest {
     }
     
     @Test
-    public void wrongUserPasswordTest() throws Exception {
+    public void wrongUserNameTest() throws Exception {
     	
-    	Loader c1 = loaderDAO.getAgent("juan@gmail.com", "password", "admin");
-    	Loader c2 = loaderDAO.getAgent("pedro@gmail.com", "password", "user");
-    	Loader c3 = loaderDAO.getAgent("raul@gmail.com", "password", "user");
+    	Loader c1 = loaderDAO.getAgent("juan@gmail.com", "1234", "person");
+    	Loader c2 = loaderDAO.getAgent("pedro@gmail.com", "1234", "entity");
+    	Loader c3 = loaderDAO.getAgent("raul@gmail.com", "1234", "sensor");
     	
     	assertNull(c1);
     	assertNull(c2);
@@ -77,9 +77,9 @@ public class DBTest {
     @Test
     public void wrongUserTypeTest() throws Exception {
     	
-    	Loader c1 = loaderDAO.getAgent("juan", "1234", "hello");
-    	Loader c2 = loaderDAO.getAgent("pedro", "1234", "world");
-    	Loader c3 = loaderDAO.getAgent("raul", "1234", "something");
+    	Loader c1 = loaderDAO.getAgent("juan", "1234", "entity");
+    	Loader c2 = loaderDAO.getAgent("pedro", "1234", "sensor");
+    	Loader c3 = loaderDAO.getAgent("raul", "1234", "person");
     	
     	assertNull(c1);
     	assertNull(c2);
@@ -89,7 +89,7 @@ public class DBTest {
     @Test
     public void updateTest() throws Exception {
     	
-    	Loader c1 = loaderDAO.getAgent("juan", "1234", "admin");
+    	Loader c1 = loaderDAO.getAgent("juan", "1234", "person");
     	
     	//Cambio de contraseña
     	c1.setContraseña("new password");

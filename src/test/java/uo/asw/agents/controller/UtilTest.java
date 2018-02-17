@@ -58,7 +58,7 @@ public class UtilTest {
 	
     @Before
     public void setUp() throws Exception {
-    	loaderMin = new LoaderMin("nombre", "apellido", new Date(), (long) 1, "usuario@gmail.com");
+    	loaderMin = new LoaderMin("nombre", "apellido", new Date(),(long) 1,"kind","kindCode", "usuario@gmail.com");
     }
 
 	@Test

@@ -187,6 +187,19 @@ public class Loader {
 	public String getKindCode() {
 		return kindCode;
 	}
+
+
+
+	public String getKind() {
+		return kind;
+	}
+
+
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
 	
 
+	
 }

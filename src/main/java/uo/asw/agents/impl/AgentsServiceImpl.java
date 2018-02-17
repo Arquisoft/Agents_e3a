@@ -19,8 +19,7 @@ public class AgentsServiceImpl implements AgentsService {
 	private LoaderDAO loaderDAO;
 
 	@Override
-	public LoaderMin getAgentsInfo(String login, String password) throws IOException {
-		String kind = "person";
+	public LoaderMin getAgentsInfo(String login, String password, String kind) throws IOException {
 		Loader c = loaderDAO.getAgent(login, password, kind);
 		if (c != null) {
 			return new LoaderMin(c.getNombre(), c.getApellidos(), c.getFechaNacimiento(), c.getId(), c.getEmail());

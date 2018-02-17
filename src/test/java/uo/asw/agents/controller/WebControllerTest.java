@@ -48,14 +48,12 @@ public class WebControllerTest {
       mockMvc.perform(post("/info")
 		.param("user", "juan")
 		.param("password", "1234")
-		.param("kind", "person")) //<---Añadir esta linea variandola para cada test a corregir
+		.param("kind", "person")) 
       	.andExpect(status().isOk())
       	.andExpect(model().attributeExists("resultado"))
       	.andExpect(view().name("view"));
     	
     }
-
-    //EL RESTO DE TESTS QUE FALLAN AÑADIR LA LÍNEA AÑADIDA EN EL ANTERIOR
     
     @Test
     //usuario incorrecto
@@ -63,7 +61,8 @@ public class WebControllerTest {
     	
         mockMvc.perform(post("/info")
     	.param("user", "usuario")
-		.param("password", "1234"))
+		.param("password", "1234")
+		.param("kind", "person"))
      	.andExpect(view().name("error"));
 
     }
@@ -74,7 +73,8 @@ public class WebControllerTest {
 
        	mockMvc.perform(post("/info")
     	.param("user", "juan")
-		.param("password", "password"))
+		.param("password", "password")
+		.param("kind", "person"))
      	.andExpect(view().name("error"));
    
     }
@@ -85,7 +85,8 @@ public class WebControllerTest {
 
        	mockMvc.perform(post("/info")
     	.param("user", "")
-		.param("password", ""))
+		.param("password", "")
+		.param("kind", ""))
         .andExpect(view().name("error"));
    
     }

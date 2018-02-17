@@ -1,5 +1,7 @@
 package uo.asw.agents.impl;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,7 @@ public class AgentsServiceImpl implements AgentsService {
 	private LoaderDAO loaderDAO;
 
 	@Override
-	public LoaderMin getAgentsInfo(String login, String password) {
+	public LoaderMin getAgentsInfo(String login, String password) throws IOException {
 		String kind = "person";
 		Loader c = loaderDAO.getAgent(login, password, kind);
 		if (c != null) {

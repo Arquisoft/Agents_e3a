@@ -45,6 +45,8 @@ public class Loader {
 	@NotNull
 	private String nacionalidad;
 	
+	private String kindCode;
+	
 	public Loader(){}
 	
 	
@@ -175,7 +177,16 @@ public class Loader {
 				+ direccionPostal + ", nacionalidad=" + nacionalidad 
 				+ ", tipo=" + kind +"]";
 	}
+
+
+
+	public void setKindCode(String string) {
+		this.kindCode = string;
+	}
 	
+	public String getKindCode() {
+		return kindCode;
+	}
 	
 
 }

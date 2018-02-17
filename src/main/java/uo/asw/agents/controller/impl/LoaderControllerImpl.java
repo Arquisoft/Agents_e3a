@@ -14,6 +14,7 @@ import uo.asw.agents.AgentsService;
 import uo.asw.agents.controller.LoaderController;
 import uo.asw.agents.util.LoaderMin;
 
+import java.io.IOException;
 import java.util.Map;
 
 @RestController
@@ -26,7 +27,7 @@ public class LoaderControllerImpl implements LoaderController {
 	@RequestMapping(value = "/user", method = RequestMethod.POST,
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-	public ResponseEntity<LoaderMin> getLoader(@RequestBody Map<String, Object> payload) {
+	public ResponseEntity<LoaderMin> getLoader(@RequestBody Map<String, Object> payload) throws IOException {
 		//if(!payload.keySet().containsAll(Arrays.asList("login", "password"))){
 		//	return new ResponseEntity<CitizenMin>(HttpStatus.BAD_REQUEST);
 		//}

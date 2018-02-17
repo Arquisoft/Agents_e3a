@@ -1,5 +1,6 @@
 package uo.asw.agents.config;
 
+
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -16,6 +17,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+
 /**
  * Configuración de la base de datos
  */
@@ -31,6 +33,7 @@ public class DatabaseConfig {
 
 	@Autowired
 	private LocalContainerEntityManagerFactoryBean entityManagerFactory;
+
 
 	/**
 	 * Crea una base de datos embebida, crea las tablas y carga los datos

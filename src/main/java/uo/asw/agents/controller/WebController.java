@@ -1,5 +1,7 @@
 package uo.asw.agents.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,14 +68,15 @@ public class WebController {
 	 *            contresena del usuario
 	 * @param model
 	 * @return view si exito, error si fracaso
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/info", method = RequestMethod.POST)
 	public String showInfo(HttpSession session, @RequestParam String user, 
-			@RequestParam String password, @RequestParam String kind, Model model) {
+			@RequestParam String password, @RequestParam String kind, Model model) throws IOException {
 
 		Loader c = null;
 
-		if (user != null && password != null && kind != null) { //CAMBIAR
+		if (user != null && password != null && kind != null) {
 			c = cc.getAgent(user, password, kind);
 			if (c != null) {
 				session.setAttribute("loader", c);

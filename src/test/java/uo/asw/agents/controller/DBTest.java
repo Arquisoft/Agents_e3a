@@ -23,23 +23,26 @@ public class DBTest {
     private LoaderDAO loaderDAO;
 	
 	@Test
-    public void getExistingCitizen() throws Exception {
+    public void getExistingAgent() throws Exception {
     	Loader c1 = loaderDAO.getAgent("juan", "1234", "person");
     	Loader c2 = loaderDAO.getAgent("pedro", "1234", "entity");
     	Loader c3 = loaderDAO.getAgent("raul", "1234", "sensor");
 
 		assertEquals("juan", c1.getNombreUsuario());
 		assertEquals("1234", c1.getContraseña());
+		assertEquals("person", c1.getKind());
 		
 		assertEquals("pedro", c2.getNombreUsuario());
 		assertEquals("1234", c2.getContraseña());
+		assertEquals("entity", c2.getKind());
 		
 		assertEquals("raul", c3.getNombreUsuario());
 		assertEquals("1234", c3.getContraseña());
+		assertEquals("sensor", c3.getKind());
     }
     
     @Test
-    public void getNonExistingCitizen() throws Exception {
+    public void getNonExistingAgent() throws Exception {
     	Loader c1 = loaderDAO.getAgent("antonio", "1234", "entity");
     	Loader c2 = loaderDAO.getAgent("daniel", "1234", "sensor");
     	Loader c3 = loaderDAO.getAgent("rodrigo", "1234", "person");

@@ -80,6 +80,7 @@ public class LoaderControllerTest {
 			{
                 put("login", "juan");
                 put("password", "1234");
+                put("kind","person");
             }
         };
 
@@ -102,6 +103,7 @@ public class LoaderControllerTest {
 			{
                 put("login", "juanJUANjuan");
                 put("password", "1234");
+                put("kind","person");
             }
         };
 
@@ -121,6 +123,7 @@ public class LoaderControllerTest {
 			{
                 put("login", "juan");
                 put("password", "1234abcde");
+                put("kind","person");
             }
         };
 
@@ -140,6 +143,47 @@ public class LoaderControllerTest {
 			{
                 put("login", "juanJUANjuan");
                 put("password", "1234abcde");
+                put("kind","person");
+            }
+        };
+
+        mockMvc.perform(post("/user")
+        		.content(new byte[0]) //Contenido vacio
+                .content(this.json(payload))
+                .contentType(JSONContentType))
+                .andExpect(status().isNotFound());
+    }
+    
+    @Test
+    //Usuario con login, password y kind incorrecto
+    public void testIncorrectLoginPassKind() throws Exception {
+        Map<String, String> payload = new HashMap<String, String>() {
+			private static final long serialVersionUID = 1L;
+
+			{
+                put("login", "juan12");
+                put("password", "1234324");
+                put("kind","osss");
+            }
+        };
+
+        mockMvc.perform(post("/user")
+        		.content(new byte[0]) //Contenido vacio
+                .content(this.json(payload))
+                .contentType(JSONContentType))
+                .andExpect(status().isNotFound());
+    }
+    
+    @Test
+    //Usuario con kind incorrecto
+    public void testNotFoundKind() throws Exception {
+        Map<String, String> payload = new HashMap<String, String>() {
+			private static final long serialVersionUID = 1L;
+
+			{
+                put("login", "juan");
+                put("password", "1234");
+                put("kind","osss");
             }
         };
 
@@ -159,6 +203,7 @@ public class LoaderControllerTest {
 			{
                 put("login", "juan");
                 put("password", "1234");
+                put("kind","person");
             }
         };
 

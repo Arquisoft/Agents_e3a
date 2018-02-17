@@ -15,15 +15,15 @@ public class LoaderMin {
 	
 	
 	
-	public LoaderMin(String name, Long id,String location,  String email,
+	public LoaderMin(String name, String location,  String email, Long id,
 			String kind, String kindCode) {
 		super();
 		this.name = name;
 //		this.lastName = lastName;
 //		this.edad = DateUtil.getYears(fechaNacimiento);
-		this.id = id;
 		this.location = location;
 		this.email = email;
+		this.id = id;
 		this.kind = kind;
 		this.kindCode = kindCode; 
 	}
@@ -104,7 +104,7 @@ public class LoaderMin {
 
 	@Override
 	public String toString() {
-		return "LoaderMin [name=" + name + ", id=" + id + ", location=" + location + ", email=" + email + ", kind="
+		return "LoaderMin [name=" + name + ", location=" + location + ", email=" + email + ", id=" + id + ", kind="
 				+ kind + ", kindCode=" + kindCode + "]";
 	}
 

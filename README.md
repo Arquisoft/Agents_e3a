@@ -23,7 +23,7 @@ _____________________________________________
 
 # Funcionamiento:
 ## Ejecución del código
-1. Para el código utilizar la orden: mvn compile
+1. Para compilar el código utilizar la orden: mvn compile
 2. Para ejecutarlo utilizamos: mvn spring-boot:run
 3. Para comprobar el funcionamiento de los test: mvn test
 
@@ -55,27 +55,25 @@ _____________________________________________
    
 ### Formato de retorn JSON
    ```json
-   {
-     "firstName": "nombre",
-     "lastName": "apellidos",
-     "edad": edad(int),
-     "id": id_usuario(long),
-     "email": "email",
-     "address": "direccion",
-     "nationality": "nacionalidad"
+   { 
+      "name": Nombre,
+      "location": Coordenadas (opcional),
+      "email": Email
+      "id": identificador,
+      "kind": tipo de usuario,
+      "kindCode": código numérico del tipo de usuario,
    }
    ```
 ### Formato retorno XML
    ```xml
-   <CitizenMin>
-       <firstName>nombre</firstName>
-       <lastName>apellidos</lastName>
-       <edad>edad</edad>
-       <id>id_usuario</id>
-       <email>email</email>
-       <address>direccion</address>
-       <nationality>nacionalidad</nationality>
-   </CitizenMin>
+   <LoaderMin>
+       <name>Nombre</name>
+       <location>Coordenadas</location> (opcional)
+       <email>Email</email>
+       <id>Identiicador</id>
+       <kind>tipo de usuario</kind>
+       <kindCode>código numérico del tipo de usuario</kindCode>
+   </LoaderMin>
    ```
    
 

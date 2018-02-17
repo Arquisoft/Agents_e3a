@@ -91,6 +91,18 @@ public class WebControllerTest {
    
     }
     
+    @Test
+    //tipo incorrecto
+    public void showInfoTest5() throws Exception {
+
+       	mockMvc.perform(post("/info")
+    	.param("user", "juan")
+		.param("password", "1234")
+		.param("kind", "entity"))
+     	.andExpect(view().name("error"));
+   
+    }
+    
    @Test
    public void showViewTest() throws Exception {
        mockMvc.perform(get("/"))

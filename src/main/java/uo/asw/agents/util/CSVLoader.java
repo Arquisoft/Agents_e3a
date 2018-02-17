@@ -12,6 +12,11 @@ public abstract class CSVLoader {
 	private static final String SEPARATOR = ",";
 	private static final String RUTA = "src/main/resources/db/csv/kindCode.csv";
 	
+	/**
+	 * Método para leer de un archivo csv
+	 * @return hashMap con la información del csv
+	 * @throws IOException
+	 */
 	public static Map<String, String> getKeyCodes() throws IOException {
 		BufferedReader br = null;
 		Map<String, String> keyCodes = new HashMap<String, String>();

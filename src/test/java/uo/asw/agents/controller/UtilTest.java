@@ -58,7 +58,7 @@ public class UtilTest {
 	
     @Before
     public void setUp() throws Exception {
-    	loaderMin = new LoaderMin("nombre", "apellido", new Date(),(long) 1,"kind","kindCode", "usuario@gmail.com");
+    	loaderMin = new LoaderMin("nombre",(long) 1, "localizacion","usuario@gmail.com","kind","kindCode");
     }
 
 	@Test
@@ -72,16 +72,16 @@ public class UtilTest {
 		String email = "fernando@gmail.com";
 
 		loaderMin.setId(id);
-		loaderMin.setFirstName(nombre);
-		loaderMin.setLastName(apellidos);
-		loaderMin.setEdad(edad);
+		loaderMin.setName(nombre);
+//		loaderMin.setLastName(apellidos);
+//		loaderMin.setEdad(edad);
 		loaderMin.setEmail(email);
 
 	
 		assertEquals(id, loaderMin.getId());
-		assertEquals(nombre, loaderMin.getFirstName());
-		assertEquals(apellidos, loaderMin.getLastName());
-		assertEquals(edad, loaderMin.getEdad());
+		assertEquals(nombre, loaderMin.getName());
+//		assertEquals(apellidos, loaderMin.getLastName());
+//		assertEquals(edad, loaderMin.getEdad());
 		assertEquals(email, loaderMin.getEmail());
 		
 	}

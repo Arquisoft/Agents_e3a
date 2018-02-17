@@ -1,83 +1,116 @@
 package uo.asw.agents.util;
 
-import java.util.Date;
+
 
 public class LoaderMin {
 
-	private String firstName;
-	private String lastName;
-	private int edad;
+	private String name;
+	//private String lastName;
 	private Long id;
+	private String location;
+	private String email;
+	//private int edad;
 	private String kind;
 	private String kindCode;
-	private String email;
 	
 	
 	
-	public LoaderMin(String firstName, String lastName, Date fechaNacimiento, Long id,
-			String kind, String kindCode, String email) {
+	public LoaderMin(String name, Long id,String location,  String email,
+			String kind, String kindCode) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.edad = DateUtil.getYears(fechaNacimiento);
+		this.name = name;
+//		this.lastName = lastName;
+//		this.edad = DateUtil.getYears(fechaNacimiento);
 		this.id = id;
+		this.location = location;
 		this.email = email;
 		this.kind = kind;
 		this.kindCode = kindCode; 
 	}
 	
-	public String getFirstName() {
-		return firstName;
+
+
+	public String getName() {
+		return name;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public int getEdad() {
-		return edad;
-	}
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
+
+
+
 	public Long getId() {
 		return id;
 	}
+
+
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+
+
+	public String getLocation() {
+		return location;
+	}
+
+
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+
+
 	public String getEmail() {
 		return email;
 	}
+
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 
 	public String getKind() {
 		return kind;
 	}
 
+
+
 	public void setKind(String kind) {
 		this.kind = kind;
 	}
+
+
 
 	public String getKindCode() {
 		return kindCode;
 	}
 
+
+
 	public void setKindCode(String kindCode) {
 		this.kindCode = kindCode;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "LoaderMin [firstName=" + firstName + ", lastName=" + lastName + ", edad=" + edad + ", id=" + id
-				+ ", kind=" + kind + ", kindCode=" + kindCode + ", email=" + email + "]";
+		return "LoaderMin [name=" + name + ", id=" + id + ", location=" + location + ", email=" + email + ", kind="
+				+ kind + ", kindCode=" + kindCode + "]";
 	}
+
+
+
+
 
 
 	

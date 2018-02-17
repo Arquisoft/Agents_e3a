@@ -1,7 +1,6 @@
 package uo.asw.dbManagement.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.stereotype.Repository;
 
 import uo.asw.agents.util.CSVLoader;
@@ -60,7 +59,6 @@ public class LoaderDAODummy implements LoaderDAO {
     
 	
 	private Map<String,String> getKindCodes() throws IOException{
-
 		return CSVLoader.getKeyCodes();
 	}
 }

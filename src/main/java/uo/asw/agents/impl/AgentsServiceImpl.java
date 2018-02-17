@@ -22,7 +22,7 @@ public class AgentsServiceImpl implements AgentsService {
 	public LoaderMin getAgentsInfo(String login, String password, String kind) throws IOException {
 		Loader c = loaderDAO.getAgent(login, password, kind);
 		if (c != null) {
-			return new LoaderMin(c.getNombre(), c.getApellidos(), c.getFechaNacimiento(), c.getId(),c.getKind(),c.getKindCode(), c.getEmail());
+			return new LoaderMin(c.getNombre(),c.getId(), c.getDireccionPostal(), c.getEmail(), c.getKind(), c.getKindCode());
 		}
 		return null;
 	}

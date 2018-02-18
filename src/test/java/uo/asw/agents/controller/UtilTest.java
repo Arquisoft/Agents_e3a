@@ -2,12 +2,8 @@ package uo.asw.agents.controller;
 
 import static org.junit.Assert.*;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Year;
-import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -16,7 +12,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.format.datetime.joda.LocalDateParser;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
@@ -66,9 +61,9 @@ public class UtilTest {
 		
 		Long id = (long) 2;
 		String nombre = "fernando";
-		String apellidos = "sanchez";
-		Date fechaNacimiento = new Date();
-		int edad = DateUtil.getYears(fechaNacimiento);
+//		String apellidos = "sanchez";
+//		Date fechaNacimiento = new Date();
+//		int edad = DateUtil.getYears(fechaNacimiento);
 		String email = "fernando@gmail.com";
 
 		loaderMin.setId(id);

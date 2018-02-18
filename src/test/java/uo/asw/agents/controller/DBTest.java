@@ -25,8 +25,8 @@ public class DBTest {
 	@Test
     public void getExistingAgent() throws Exception {
     	Loader c1 = loaderDAO.getAgent("juan", "1234", "person");
-    	Loader c2 = loaderDAO.getAgent("pedro", "1234", "entity");
-    	Loader c3 = loaderDAO.getAgent("raul", "1234", "sensor");
+    	Loader c2 = loaderDAO.getAgent("pedro", "1234", "sensor");
+    	Loader c3 = loaderDAO.getAgent("raul", "1234", "entity");
 
 		assertEquals("juan", c1.getNombreUsuario());
 		assertEquals("1234", c1.getContraseña());
@@ -34,11 +34,11 @@ public class DBTest {
 		
 		assertEquals("pedro", c2.getNombreUsuario());
 		assertEquals("1234", c2.getContraseña());
-		assertEquals("entity", c2.getKind());
+		assertEquals("sensor", c2.getKind());
 		
 		assertEquals("raul", c3.getNombreUsuario());
 		assertEquals("1234", c3.getContraseña());
-		assertEquals("sensor", c3.getKind());
+		assertEquals("entity", c3.getKind());
     }
     
     @Test
@@ -81,8 +81,8 @@ public class DBTest {
     public void wrongUserTypeTest() throws Exception {
     	
     	Loader c1 = loaderDAO.getAgent("juan", "1234", "entity");
-    	Loader c2 = loaderDAO.getAgent("pedro", "1234", "sensor");
-    	Loader c3 = loaderDAO.getAgent("raul", "1234", "person");
+    	Loader c2 = loaderDAO.getAgent("pedro", "1234", "person");
+    	Loader c3 = loaderDAO.getAgent("raul", "1234", "sensor");
     	
     	assertNull(c1);
     	assertNull(c2);

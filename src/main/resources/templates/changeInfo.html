@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1" />
+<meta charset="UTF-8"/>
 <title>Change participant info</title>
 </head>
 <body>
 	<h1>
-		Cambiar la contrasena del usuario <span
+		Cambiar la contraseña del usuario <span
 			th:text="${session.loader.nombre}" />
 	</h1>
 	<form method="POST" action="changeInfo">
 		<table>
 			<tr>
-				<td>Contrasena:</td>
+				<td>Contraseña:</td>
 				<td><input type="password" name="password" required="required"
 					placeholder="Contrasena" /></td>
 			</tr>
 			<tr>
-				<td>Nueva contrasena:</td>
+				<td>Nueva contraseña:</td>
 				<td><input type="password" name="newPassword"
 					required="required" placeholder="Nueva contrasena" /></td>
 			</tr>
 			<tr>
 				<td><input type="submit" name="updateInfo"
-					value="Actualizar contrasena" /></td>
+					value="Actualizar contraseña" /></td>
 				<td><input id="btnReset" type="reset" value="Reset" /></td>
 			</tr>
 			<tr>

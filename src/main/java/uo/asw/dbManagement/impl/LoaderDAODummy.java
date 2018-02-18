@@ -28,7 +28,7 @@ public class LoaderDAODummy implements LoaderDAO {
 
 	static {
 		dummyLoader = new Loader("pass", "dummy", "123456", "Clara", "Oswald", new Date(),
-				"clara@tardis.co.uk", "The Hyperspace", "Inglesa", "person");
+				"clara@tardis.co.uk", "The Hyperspace", "Inglesa", "person", "43.362742", "-5.849348");
 	}
 
 	@Override

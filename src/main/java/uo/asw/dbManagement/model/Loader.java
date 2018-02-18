@@ -44,6 +44,10 @@ public class Loader {
 	private String direccionPostal;
 	@NotNull
 	private String nacionalidad;
+	@NotNull
+	private String latitud;
+	@NotNull
+	private String longitud;
 	
 	private String kindCode;
 	
@@ -53,7 +57,8 @@ public class Loader {
 
 	public Loader(String contraseña, String nombreUsuario, String dni,
 			String nombre, String apellidos, Date fechaNacimiento,
-			String email, String direccionPostal, String nacionalidad, String kind) {
+			String email, String direccionPostal, String nacionalidad, 
+			String kind, String latitud, String longitud) {
 		super();
 		this.contraseña = contraseña;
 		this.nombreUsuario = nombreUsuario;
@@ -65,6 +70,8 @@ public class Loader {
 		this.direccionPostal = direccionPostal;
 		this.nacionalidad = nacionalidad;
 		this.kind = kind;
+		this.latitud = latitud;
+		this.longitud = longitud;
 	}
 
 
@@ -103,6 +110,22 @@ public class Loader {
 
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
+	}
+
+	public String getLatitud() {
+		return latitud;
+	}
+
+	public void setLatitud(String latitud) {
+		this.latitud = latitud;
+	}
+
+	public String getLongitud() {
+		return longitud;
+	}
+
+	public void setLongitud(String longitud) {
+		this.longitud = longitud;
 	}
 
 	public void setFechaNacimiento(Date fechaNacimiento) {
@@ -168,14 +191,13 @@ public class Loader {
 		return true;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Loader [contraseña=" + contraseña + ", nombreUsuario="
-				+ nombreUsuario + ", dni=" + dni + ", nombre=" + nombre
-				+ ", apellidos=" + apellidos + ", fechaNacimiento="
-				+ fechaNacimiento + ", email=" + email + ", direccionPostal="
-				+ direccionPostal + ", nacionalidad=" + nacionalidad 
-				+ ", tipo=" + kind +"]";
+		return "Loader [id=" + id + ", contraseña=" + contraseña + ", nombreUsuario=" + nombreUsuario + ", kind=" + kind
+				+ ", dni=" + dni + ", nombre=" + nombre + ", apellidos=" + apellidos + ", fechaNacimiento="
+				+ fechaNacimiento + ", email=" + email + ", direccionPostal=" + direccionPostal + ", nacionalidad="
+				+ nacionalidad + ", latitud=" + latitud + ", longitud=" + longitud + ", kindCode=" + kindCode + "]";
 	}
 
 

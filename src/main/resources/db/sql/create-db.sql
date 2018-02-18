@@ -11,5 +11,7 @@ CREATE TABLE loader (
   fechaNacimiento DATE,
   email VARCHAR(50),
   direccionPostal VARCHAR(50),
-  nacionalidad VARCHAR(50)
+  nacionalidad VARCHAR(50),
+  latitud VARCHAR(50),
+  longitud VARCHAR(50)
 );

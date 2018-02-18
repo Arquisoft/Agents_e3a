@@ -36,7 +36,7 @@ public class LoaderControllerImpl implements LoaderController {
 		login = (String) payload.get("login");
 		password = (String) payload.get("password");
 		kind = (String) payload.get("kind");
-		LoaderMin c = agentsService.getAgentsInfo(login, password, kind);
+		LoaderMin c = agentsService.getAgentInfo(login, password, kind);
 		if(c == null){
 			return new ResponseEntity<LoaderMin>(HttpStatus.NOT_FOUND);
 		}

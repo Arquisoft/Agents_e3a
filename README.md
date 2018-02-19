@@ -32,6 +32,7 @@ _____________________________________________
 2. Proporcionar los datos de login para los usuarios disponibles:
  * Login: juan, pedro, raul
  * Password: 1234
+ * Kind: person, entity, sensor
 3. Aparecerá la pantalla que muestra los datos del usuario
  * Se puede modificar el email (se comprueba si el email es valido)
  * Se puede ir a la pantalla de cambio de contraseña

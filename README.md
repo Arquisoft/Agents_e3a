@@ -30,9 +30,9 @@ _____________________________________________
 ## Interfaz HTML
 1. Escribir en el navegador: http://localhost:8080/
 2. Proporcionar los datos de login para los usuarios disponibles:
- * Login: juan, pedro, raul
- * Password: 1234
- * Kind: person, entity, sensor
+ * Login: juan; Password: 1234; Kind: person
+ * Login: pedro; Password: 1234; Kind: entity
+ * Login: raul; Password: 1234; Kind: sensor
 3. Aparecerá la pantalla que muestra los datos del usuario
  * Se puede modificar el email (se comprueba si el email es valido)
  * Se puede ir a la pantalla de cambio de contraseña

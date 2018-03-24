@@ -1,4 +1,4 @@
-package uo.asw.agents.controller.impl;
+package uo.asw.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import uo.asw.agents.AgentsService;
-import uo.asw.agents.controller.LoaderController;
 import uo.asw.agents.util.LoaderMin;
+import uo.asw.controllers.AgentsController;
 
 import java.io.IOException;
 import java.util.Map;
 
 @RestController
-public class LoaderControllerImpl implements LoaderController {
+public class AgentsController {
 
 	@Autowired
 	private AgentsService agentsService;
 
-	@Override
+
 	@RequestMapping(value = "/user", method = RequestMethod.POST,
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})

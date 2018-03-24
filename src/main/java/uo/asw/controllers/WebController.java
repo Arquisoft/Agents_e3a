@@ -1,4 +1,4 @@
-package uo.asw.agents.controller;
+package uo.asw.controllers;
 
 import java.io.IOException;
 
@@ -13,12 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import uo.asw.agents.util.Check;
-import uo.asw.dbManagement.LoaderDAO;
-import uo.asw.dbManagement.model.Agent;
+import uo.asw.model.Agente;
+import uo.asw.services.AgentsService;
 
 @Controller
 public class WebController {
 
+
+	@Autowired
+	private AgentsService agentsService;
+	
+	
+	
 	/**
 	 * Devuelve la pagina de incio login
 	 * 
@@ -31,9 +37,6 @@ public class WebController {
 		return "log";
 	}
 
-
-	@Autowired
-	private LoaderDAO cc;
 
 	/**
 	 * Recibe los datos de login del usuario, busca si exite ese usuario y en
@@ -54,10 +57,10 @@ public class WebController {
 	public String showInfo(HttpSession session, @RequestParam String user, 
 			@RequestParam String password, @RequestParam String kind, Model model) throws IOException {
 
-		Agent c = null;
+		Agente c = null;
 
 		if (user != null && password != null && kind != null) {
-			c = cc.getAgent(user, password, kind);
+			c = agentsService.getAgent(user, password, kind);
 			if (c != null) {
 				session.setAttribute("loader", c);
 				model.addAttribute("resultado", "Bienvenid@ " + c.getNombre());
@@ -95,11 +98,11 @@ public class WebController {
 	@RequestMapping(value = "/changeInfo", method = RequestMethod.POST)
 	public String changePassword(HttpSession session, @RequestParam String password, @RequestParam String newPassword,
 			Model model) {
-		Agent c = (Agent) session.getAttribute("loader");
+		Agente c = (Agente) session.getAttribute("loader");
 		if (c != null) {
 			if (c.getContrasena().equals(password) && !newPassword.isEmpty()) {
 				c.setContrasena(newPassword);
-				cc.updateInfo(c);
+				agentsService.updateAgent(c);
 				model.addAttribute("resultado", "Contrasena actualizada correctamente");
 				return "view";
 			}
@@ -121,11 +124,11 @@ public class WebController {
 	 */
 	@RequestMapping(value = "/changeEmail", method = RequestMethod.POST)
 	public String changeEmail(HttpSession session, @RequestParam String email, Model model){
-		Agent c = (Agent) session.getAttribute("loader");
+		Agente c = (Agente) session.getAttribute("loader");
 		if(c != null){
 			if(!email.isEmpty() && Check.validateEmail(email)){
 				c.setEmail(email);
-				cc.updateInfo(c);
+				agentsService.updateAgent(c);
 				model.addAttribute("resultado", "Email actualizado correctemente a: " + email);
 			}else{
 				model.addAttribute("resultado", "El email no es valido, no actualizado a: " + email);

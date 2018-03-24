@@ -4,7 +4,7 @@ package uo.asw.agents;
 import java.io.IOException;
 
 import uo.asw.agents.util.LoaderMin;
-import uo.asw.dbManagement.model.Agent;
+import uo.asw.model.Agente;
 
 /**
  * Servicio de agentes
@@ -12,5 +12,5 @@ import uo.asw.dbManagement.model.Agent;
  */
 public interface AgentsService {
     LoaderMin getAgentInfo(String login, String password, String kind) throws IOException ;
-    Agent changeInfo(Agent updatedData);
+    Agente changeInfo(Agente updatedData);
 }

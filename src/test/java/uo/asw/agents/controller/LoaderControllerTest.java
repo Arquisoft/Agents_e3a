@@ -16,8 +16,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import uo.asw.Application;
-import uo.asw.dbManagement.LoaderDAO;
-import uo.asw.dbManagement.model.Agent;
+import uo.asw.model.Agente;
+import uo.asw.repository.AgentsRepository;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -64,7 +64,7 @@ public class LoaderControllerTest {
             Charset.forName("utf8"));
 
     @Autowired
-    private LoaderDAO loaderDAO;
+    private AgentsRepository loaderDAO;
 
     @Before
     public void setUp() throws Exception {
@@ -84,7 +84,7 @@ public class LoaderControllerTest {
             }
         };
 
-        Agent c = loaderDAO.getAgent("juan", "1234", "person");
+        Agente c = loaderDAO.findByNombreAndContrasenaAndKind("juan", "1234", "person");
         mockMvc.perform(post("/user")
                 .content(this.json(payload))
                 .contentType(JSONContentType))
@@ -207,7 +207,7 @@ public class LoaderControllerTest {
             }
         };
 
-        Agent c = loaderDAO.getAgent("juan", "1234", "person");
+        Agente c = loaderDAO.findByNombreAndContrasenaAndKind("juan", "1234", "person");
         mockMvc.perform(post("/user")
                 .content(this.json(payload))
                 .contentType(JSONContentType)

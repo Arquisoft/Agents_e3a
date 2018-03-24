@@ -9,8 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import uo.asw.Application;
-import uo.asw.dbManagement.LoaderDAO;
-import uo.asw.dbManagement.model.Agent;
+import uo.asw.model.Agente;
+import uo.asw.repository.AgentsRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
@@ -20,13 +20,13 @@ public class DBTest {
 
 	
 	@Autowired
-    private LoaderDAO loaderDAO;
+    private AgentsRepository loaderDAO;
 	
 	@Test
     public void getExistingAgent() throws Exception {
-    	Agent c1 = loaderDAO.getAgent("juan", "1234", "person");
-    	Agent c2 = loaderDAO.getAgent("pedro", "1234", "sensor");
-    	Agent c3 = loaderDAO.getAgent("raul", "1234", "entity");
+    	Agente c1 = loaderDAO.findByNombreAndContrasenaAndKind("juan", "1234", "person");
+    	Agente c2 = loaderDAO.findByNombreAndContrasenaAndKind("pedro", "1234", "sensor");
+    	Agente c3 = loaderDAO.findByNombreAndContrasenaAndKind("raul", "1234", "entity");
 
 		/*assertEquals("juan", c1.getNombreUsuario());
 		assertEquals("1234", c1.getContraseña());
@@ -44,9 +44,9 @@ public class DBTest {
     
     @Test
     public void getNonExistingAgent() throws Exception {
-    	Agent c1 = loaderDAO.getAgent("antonio", "1234", "entity");
-    	Agent c2 = loaderDAO.getAgent("daniel", "1234", "sensor");
-    	Agent c3 = loaderDAO.getAgent("rodrigo", "1234", "person");
+    	Agente c1 = loaderDAO.findByNombreAndContrasenaAndKind("antonio", "1234", "entity");
+    	Agente c2 = loaderDAO.findByNombreAndContrasenaAndKind("daniel", "1234", "sensor");
+    	Agente c3 = loaderDAO.findByNombreAndContrasenaAndKind("rodrigo", "1234", "person");
 
     	assertNull(c1);
     	assertNull(c2);
@@ -57,9 +57,9 @@ public class DBTest {
     @Test
     public void wrongPasswordTest() throws Exception {
     	
-    	Agent c1 = loaderDAO.getAgent("juan", "password", "person");
-    	Agent c2 = loaderDAO.getAgent("pedro", "password", "entity");
-    	Agent c3 = loaderDAO.getAgent("raul", "password", "sensor");
+    	Agente c1 = loaderDAO.findByNombreAndContrasenaAndKind("juan", "password", "person");
+    	Agente c2 = loaderDAO.findByNombreAndContrasenaAndKind("pedro", "password", "entity");
+    	Agente c3 = loaderDAO.findByNombreAndContrasenaAndKind("raul", "password", "sensor");
     	
     	assertNull(c1);
     	assertNull(c2);
@@ -69,9 +69,9 @@ public class DBTest {
     @Test
     public void wrongUserNameTest() throws Exception {
     	
-    	Agent c1 = loaderDAO.getAgent("juan@gmail.com", "1234", "person");
-    	Agent c2 = loaderDAO.getAgent("pedro@gmail.com", "1234", "entity");
-    	Agent c3 = loaderDAO.getAgent("raul@gmail.com", "1234", "sensor");
+    	Agente c1 = loaderDAO.findByNombreAndContrasenaAndKind("juan@gmail.com", "1234", "person");
+    	Agente c2 = loaderDAO.findByNombreAndContrasenaAndKind("pedro@gmail.com", "1234", "entity");
+    	Agente c3 = loaderDAO.findByNombreAndContrasenaAndKind("raul@gmail.com", "1234", "sensor");
     	
     	assertNull(c1);
     	assertNull(c2);
@@ -81,9 +81,9 @@ public class DBTest {
     @Test
     public void wrongUserTypeTest() throws Exception {
     	
-    	Agent c1 = loaderDAO.getAgent("juan", "1234", "entity");
-    	Agent c2 = loaderDAO.getAgent("pedro", "1234", "person");
-    	Agent c3 = loaderDAO.getAgent("raul", "1234", "sensor");
+    	Agente c1 = loaderDAO.findByNombreAndContrasenaAndKind("juan", "1234", "entity");
+    	Agente c2 = loaderDAO.findByNombreAndContrasenaAndKind("pedro", "1234", "person");
+    	Agente c3 = loaderDAO.findByNombreAndContrasenaAndKind("raul", "1234", "sensor");
     	
     	assertNull(c1);
     	assertNull(c2);
@@ -93,7 +93,7 @@ public class DBTest {
     @Test
     public void updateTest() throws Exception {
     	
-    	Agent c1 = loaderDAO.getAgent("juan", "1234", "person");
+    	Agente c1 = loaderDAO.findByNombreAndContrasenaAndKind("juan", "1234", "person");
     	/*
     	//Cambio de contraseña
     	c1.setContraseña("new password");

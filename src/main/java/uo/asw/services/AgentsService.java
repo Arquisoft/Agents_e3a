@@ -7,21 +7,21 @@ import org.springframework.stereotype.Service;
 
 import uo.asw.agents.util.CSVLoader;
 import uo.asw.agents.util.LoaderMin;
-import uo.asw.dbManagement.model.Agent;
+import uo.asw.model.Agente;
 import uo.asw.repository.AgentsRepository;
 
 @Service
 public class AgentsService {
 
 	@Autowired
-    private AgentsRepository loaderRepository;
+    private AgentsRepository agentsRepository;
 	
 	@Autowired
 	private CSVLoader csvLoader;
 
 
 	public LoaderMin getAgentInfo(String login, String password, String kind) throws IOException {
-		Agent c = loaderRepository.findByNombreAndContrasenaAndKind(login, password, kind);
+		Agente c = agentsRepository.findByNombreAndContrasenaAndKind(login, password, kind);
 		if (c != null) {
 			c.setKindCode(csvLoader.getKeyCodes().get(c.getKind()));
 			return new LoaderMin(c.getNombre() , "\""+ c.getLatitud() +"\"N - \""+ c.getLongitud() +"\"W", c.getEmail(), c.getIdentificador(), c.getKind(), c.getKindCode());
@@ -30,7 +30,17 @@ public class AgentsService {
 	}
 
 	
-//	public Agent changeInfo(Agent updatedData) {
-//		return loaderRepository.updateInfo(updatedData);
-//	}
+	public Agente updateAgent(Agente updatedData) {
+		return agentsRepository.updateAgent(updatedData);
+	}
+
+
+	public Agente getAgent(String user, String password, String kind) {
+		return agentsRepository.findByNombreAndContrasenaAndKind(user, password, kind);
+	}
+
+
+	public void addAgente(Agente agent) {
+		agentsRepository.save(agent);
+	}
 }

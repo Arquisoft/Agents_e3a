@@ -19,8 +19,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import uo.asw.Application;
-import uo.asw.dbManagement.LoaderDAO;
-import uo.asw.dbManagement.model.Agent;
+import uo.asw.model.Agente;
+import uo.asw.repository.AgentsRepository;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -34,7 +34,7 @@ public class WebControllerTest {
     private MockMvc mockMvc;
     
     @Autowired
-    private LoaderDAO loaderDAO;
+    private AgentsRepository loaderDAO;
      
     @Before
     public void init() {
@@ -114,7 +114,7 @@ public class WebControllerTest {
    @Test
    public void changePasswordTest1() throws Exception {
    	
-	   Agent c = loaderDAO.getAgent("juan", "1234", "person");
+	   Agente c = loaderDAO.findByNombreAndContrasenaAndKind("juan", "1234", "person");
 
 	   //Cambio de contraseña
        mockMvc.perform(post("/changeInfo")
@@ -138,7 +138,7 @@ public class WebControllerTest {
    //Contraseña incorrecta
    public void changePasswordTest2() throws Exception {
    	
-	   Agent c = loaderDAO.getAgent("juan", "1234", "person");
+	   Agente c = loaderDAO.findByNombreAndContrasenaAndKind("juan", "1234", "person");
 
        mockMvc.perform(post("/changeInfo")
     	.param("password", "password")
@@ -151,7 +151,7 @@ public class WebControllerTest {
    @Test
    public void changeEmailTest1() throws Exception {
    	
-	   Agent c = loaderDAO.getAgent("juan", "1234", "person");
+	   Agente c = loaderDAO.findByNombreAndContrasenaAndKind("juan", "1234", "person");
 
 	   //Cambio de email
        mockMvc.perform(post("/changeEmail")

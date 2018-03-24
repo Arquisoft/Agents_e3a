@@ -1,4 +1,4 @@
-package uo.asw.dbManagement.model;
+package uo.asw.model;
 
 
 import javax.persistence.Column;
@@ -9,14 +9,12 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 @Document(collection = "agents")
 @JsonPropertyOrder({ "name", "location", "email", "id", "kind", "kindCode" })
-public class Agent {
+public class Agente {
 	@Id
 	private ObjectId id;
 	
@@ -35,9 +33,9 @@ public class Agent {
 	@Column(name = "permiso_envio")
 	private String permisoEnvio; //'si' o 'no'
 	
-	public Agent() {}
+	public Agente() {}
 
-	public Agent(String nombre, String contrasena, String kindCode, String identificador, String latitud,
+	public Agente(String nombre, String contrasena, String kindCode, String identificador, String latitud,
 			String longitud, String email, String permisoEnvio) {
 		super();
 		this.nombre = nombre;
@@ -59,6 +57,7 @@ public class Agent {
 		this.nombre = nombre;
 	}
 
+	
 	public String getContrasena() {
 		return contrasena;
 	}
@@ -67,8 +66,7 @@ public class Agent {
 		this.contrasena = contrasena;
 	}
 
-	@JsonIgnore
-    @JsonProperty(value = "user_password")
+	
 	public String getKindCode() {
 		return kindCode;
 	}
@@ -145,7 +143,7 @@ public class Agent {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Agent other = (Agent) obj;
+		Agente other = (Agente) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -160,13 +158,17 @@ public class Agent {
 	}
 
 	@Override
-	public String toString() {
-		return "Agente [id=" + id + ", nombre=" + nombre + ", contrasena=" 
-	+ contrasena + ", kindCode=" + kindCode
-				+ ", identificador=" + identificador + ", latitud=" 
-	+ latitud + ", longitud=" + longitud + ", email="
-				+ email + ", permisoEnvio=" + permisoEnvio + "]";
-	}
+    public String toString() {
+	final StringBuilder sb = new StringBuilder("{");
+	sb.append("name='").append(nombre).append('\'');
+	sb.append(",location='").append("\""+ latitud +"\"N - \""+ longitud +"\"W").append('\'');
+	sb.append(",email='").append(email).append('\'');
+	sb.append(",id='").append(id).append('\'');
+	sb.append(",kind='").append(getKind()).append('\'');
+	sb.append(",kindCode='").append(kindCode).append("'");
+	sb.append('}');
+	return sb.toString();
+    }
 
 	
 	

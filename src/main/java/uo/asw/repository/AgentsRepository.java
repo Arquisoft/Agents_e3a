@@ -1,13 +1,17 @@
 package uo.asw.repository;
 
-import uo.asw.dbManagement.model.Agent;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface AgentsRepository  extends MongoRepository<Agent, ObjectId>{
+import uo.asw.model.Agente;
 
-	Agent findById(String id);
+public interface AgentsRepository  extends MongoRepository<Agente, ObjectId>{
+
+	Agente findById(String id);
 	
 
-	Agent findByNombreAndContrasenaAndKind(String nombre, String contrasena, String kind);
+	Agente findByNombreAndContrasenaAndKind(String nombre, String contrasena, String kind);
+
+
+	Agente updateAgent(Agente updatedData);
 }

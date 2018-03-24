@@ -32,8 +32,10 @@ public class AgentsService {
 	
 
 
-	public Agente getAgent(String user, String password, String kind) {
-		return agentsRepository.findByNombreAndContrasenaAndKind(user, password, kind);
+	public Agente getAgent(String user, String password, String kind) throws IOException {
+		Agente c = agentsRepository.findByNombreAndContrasenaAndKind(user, password, kind);
+		c.setKindCode(csvLoader.getKeyCodes().get(c.getKind()));
+		return c;
 	}
 
 

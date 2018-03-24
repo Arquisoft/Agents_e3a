@@ -2,12 +2,15 @@ package uo.asw.agents.util;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 @XmlRootElement(name = "min")
+@JsonPropertyOrder({ "name", "location", "email", "id", "kind", "kindCode" })
 public class LoaderMin {
 
 	private String name;
-	private String identificador;
+	private String id;
 	private String location;
 	private String email;
 	private String kind;
@@ -21,7 +24,7 @@ public class LoaderMin {
 		this.name = name;
 		this.location = location;
 		this.email = email;
-		this.identificador = id;
+		this.id = id;
 		this.kind = kind;
 		this.kindCode = kindCode; 
 	}
@@ -41,13 +44,13 @@ public class LoaderMin {
 
 
 	public String getId() {
-		return identificador;
+		return id;
 	}
 
 
 
 	public void setId(String id) {
-		this.identificador = id;
+		this.id = id;
 	}
 
 
@@ -102,7 +105,7 @@ public class LoaderMin {
 
 	@Override
 	public String toString() {
-		return "LoaderMin [name=" + name + ", location=" + location + ", email=" + email + ", id=" + identificador + ", kind="
+		return "LoaderMin [name=" + name + ", location=" + location + ", email=" + email + ", id=" + id + ", kind="
 				+ kind + ", kindCode=" + kindCode + "]";
 	}
 

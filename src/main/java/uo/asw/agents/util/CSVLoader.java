@@ -15,7 +15,7 @@ public class CSVLoader {
 	private static final String SEPARATOR = ",";
 	private static final String RUTA = "src/main/resources/db/csv/kindCode.csv";
 	
-	private Map<String, String> keyCodes;
+	private static Map<String, String> keyCodes;
 	
 	
 	/**

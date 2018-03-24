@@ -13,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 @Document(collection = "agents")
-@JsonPropertyOrder({ "name", "location", "email", "id", "kind", "kindCode" })
 public class Agente {
 	@Id
 	private ObjectId id;
@@ -157,18 +156,7 @@ public class Agente {
 		return true;
 	}
 
-	@Override
-    public String toString() {
-	final StringBuilder sb = new StringBuilder("{");
-	sb.append("name='").append(nombre).append('\'');
-	sb.append(",location='").append("\""+ latitud +"\"N - \""+ longitud +"\"W").append('\'');
-	sb.append(",email='").append(email).append('\'');
-	sb.append(",id='").append(identificador).append('\'');
-	sb.append(",kind='").append(getKind()).append('\'');
-	sb.append(",kindCode='").append(kindCode).append("'");
-	sb.append('}');
-	return sb.toString();
-    }
+
 
 	public ObjectId getId() {
 		return id;

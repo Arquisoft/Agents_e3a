@@ -27,6 +27,10 @@ public class InsertSampleDataService {
 		Agente agente5 = new Agente("Agente5", "123456", "person", "Id5", "Lat5", "Lon5", "agente5@prueba.es","si");
 		Agente agente6 = new Agente("Agente6", "123456", "person", "Id6", "Lat6", "Lon6", "agente6@prueba.es","si");
 		
+		Agente agente7 = new Agente("juan", "1234", "person", "Id7", "Lat5", "Lon5", "juan@gmail.com","si");
+		Agente agente8 = new Agente("pedro", "1234", "sensor", "Id8", "Lat6", "Lon6", "pedro@gmail.com","si");
+		Agente agente9 = new Agente("raul", "1234", "entity", "Id8", "Lat6", "Lon6", "raul@gmail.com","si");
+		
 		// Guardado de agentes
 		agenteService.addAgente(agente1);
 		agenteService.addAgente(agente2);
@@ -34,6 +38,9 @@ public class InsertSampleDataService {
 		agenteService.addAgente(agente4);
 		agenteService.addAgente(agente5);
 		agenteService.addAgente(agente6);
+		agenteService.addAgente(agente7);
+		agenteService.addAgente(agente8);
+		agenteService.addAgente(agente9);
 
 	}
 	

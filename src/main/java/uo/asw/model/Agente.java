@@ -163,12 +163,20 @@ public class Agente {
 	sb.append("name='").append(nombre).append('\'');
 	sb.append(",location='").append("\""+ latitud +"\"N - \""+ longitud +"\"W").append('\'');
 	sb.append(",email='").append(email).append('\'');
-	sb.append(",id='").append(id).append('\'');
+	sb.append(",id='").append(identificador).append('\'');
 	sb.append(",kind='").append(getKind()).append('\'');
 	sb.append(",kindCode='").append(kindCode).append("'");
 	sb.append('}');
 	return sb.toString();
     }
+
+	public ObjectId getId() {
+		return id;
+	}
+
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
 
 	
 	

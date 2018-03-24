@@ -95,14 +95,15 @@ public class WebController {
 	 * @param model
 	 * @return pagina siguiente
 	 */
-	/*@RequestMapping(value = "/changeInfo", method = RequestMethod.POST)
+	@RequestMapping(value = "/changeInfo", method = RequestMethod.POST)
 	public String changePassword(HttpSession session, @RequestParam String password, @RequestParam String newPassword,
 			Model model) {
 		Agente c = (Agente) session.getAttribute("loader");
 		if (c != null) {
 			if (c.getContrasena().equals(password) && !newPassword.isEmpty()) {
 				c.setContrasena(newPassword);
-				agentsService.updateAgent(c);
+				agentsService.addAgente(c);
+//				agentsService.setContrasenia(newPassword);
 				model.addAttribute("resultado", "Contrasena actualizada correctamente");
 				return "view";
 			}
@@ -111,7 +112,7 @@ public class WebController {
 		return "error";
 
 	}
-*/
+
 	
 	/**
 	 * Modifica el email del usuario en sesión, comprueba que el email es correcto
@@ -122,13 +123,13 @@ public class WebController {
 	 * @param model
 	 * @return view si el usuario esta registrado, error si el usuario no esta registrado
 	 */
-	/*@RequestMapping(value = "/changeEmail", method = RequestMethod.POST)
+	@RequestMapping(value = "/changeEmail", method = RequestMethod.POST)
 	public String changeEmail(HttpSession session, @RequestParam String email, Model model){
 		Agente c = (Agente) session.getAttribute("loader");
 		if(c != null){
 			if(!email.isEmpty() && Check.validateEmail(email)){
 				c.setEmail(email);
-				agentsService.updateAgent(c);
+				agentsService.addAgente(c);
 				model.addAttribute("resultado", "Email actualizado correctemente a: " + email);
 			}else{
 				model.addAttribute("resultado", "El email no es valido, no actualizado a: " + email);
@@ -136,5 +137,5 @@ public class WebController {
 			return "view";	
 		}
 		return "error";
-	}*/
+	}
 }

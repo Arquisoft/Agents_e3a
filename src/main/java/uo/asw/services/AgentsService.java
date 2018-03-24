@@ -30,9 +30,6 @@ public class AgentsService {
 	}
 
 	
-//	public Agente updateAgent(Agente updatedData) {
-//		return agentsRepository.updateInfo(updatedData);
-//	}
 
 
 	public Agente getAgent(String user, String password, String kind) {

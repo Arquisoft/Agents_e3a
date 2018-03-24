@@ -28,18 +28,18 @@ public class DBTest {
     	Agente c2 = loaderDAO.findByNombreAndContrasenaAndKind("pedro", "1234", "sensor");
     	Agente c3 = loaderDAO.findByNombreAndContrasenaAndKind("raul", "1234", "entity");
 
-		/*assertEquals("juan", c1.getNombreUsuario());
-		assertEquals("1234", c1.getContraseña());
+		assertEquals("juan", c1.getNombre());
+		assertEquals("1234", c1.getContrasena());
 		assertEquals("person", c1.getKind());
 		
-		assertEquals("pedro", c2.getNombreUsuario());
-		assertEquals("1234", c2.getContraseña());
+		assertEquals("pedro", c2.getNombre());
+		assertEquals("1234", c2.getContrasena());
 		assertEquals("sensor", c2.getKind());
 		
-		assertEquals("raul", c3.getNombreUsuario());
-		assertEquals("1234", c3.getContraseña());
+		assertEquals("raul", c3.getNombre());
+		assertEquals("1234", c3.getContrasena());
 		assertEquals("entity", c3.getKind());
-		*/
+		
     }
     
     @Test

@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class LoaderMin {
 
 	private String name;
-	private String id;
+	private String identificador;
 	private String location;
 	private String email;
 	private String kind;
@@ -21,7 +21,7 @@ public class LoaderMin {
 		this.name = name;
 		this.location = location;
 		this.email = email;
-		this.id = id;
+		this.identificador = id;
 		this.kind = kind;
 		this.kindCode = kindCode; 
 	}
@@ -41,13 +41,13 @@ public class LoaderMin {
 
 
 	public String getId() {
-		return id;
+		return identificador;
 	}
 
 
 
 	public void setId(String id) {
-		this.id = id;
+		this.identificador = id;
 	}
 
 
@@ -102,7 +102,7 @@ public class LoaderMin {
 
 	@Override
 	public String toString() {
-		return "LoaderMin [name=" + name + ", location=" + location + ", email=" + email + ", id=" + id + ", kind="
+		return "LoaderMin [name=" + name + ", location=" + location + ", email=" + email + ", id=" + identificador + ", kind="
 				+ kind + ", kindCode=" + kindCode + "]";
 	}
 

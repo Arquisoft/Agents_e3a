@@ -30,9 +30,9 @@ public class AgentsService {
 	}
 
 	
-	public Agente updateAgent(Agente updatedData) {
-		return agentsRepository.updateAgent(updatedData);
-	}
+//	public Agente updateAgent(Agente updatedData) {
+//		return agentsRepository.updateInfo(updatedData);
+//	}
 
 
 	public Agente getAgent(String user, String password, String kind) {
@@ -42,5 +42,10 @@ public class AgentsService {
 
 	public void addAgente(Agente agent) {
 		agentsRepository.save(agent);
+	}
+
+
+	public void deleteAll() {
+		agentsRepository.deleteAll();
 	}
 }

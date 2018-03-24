@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import uo.asw.agents.AgentsService;
 import uo.asw.agents.util.LoaderMin;
 import uo.asw.controllers.AgentsController;
+import uo.asw.services.AgentsService;
 
 import java.io.IOException;
 import java.util.Map;
@@ -22,7 +22,6 @@ public class AgentsController {
 
 	@Autowired
 	private AgentsService agentsService;
-
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST,
 			consumes = MediaType.APPLICATION_JSON_VALUE,

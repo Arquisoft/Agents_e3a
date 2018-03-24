@@ -10,7 +10,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 @Service
-public abstract class CSVLoader {
+public class CSVLoader {
 	
 	private static final String SEPARATOR = ",";
 	private static final String RUTA = "src/main/resources/db/csv/kindCode.csv";

@@ -95,7 +95,7 @@ public class WebController {
 	 * @param model
 	 * @return pagina siguiente
 	 */
-	@RequestMapping(value = "/changeInfo", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/changeInfo", method = RequestMethod.POST)
 	public String changePassword(HttpSession session, @RequestParam String password, @RequestParam String newPassword,
 			Model model) {
 		Agente c = (Agente) session.getAttribute("loader");
@@ -111,7 +111,7 @@ public class WebController {
 		return "error";
 
 	}
-
+*/
 	
 	/**
 	 * Modifica el email del usuario en sesión, comprueba que el email es correcto
@@ -122,7 +122,7 @@ public class WebController {
 	 * @param model
 	 * @return view si el usuario esta registrado, error si el usuario no esta registrado
 	 */
-	@RequestMapping(value = "/changeEmail", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/changeEmail", method = RequestMethod.POST)
 	public String changeEmail(HttpSession session, @RequestParam String email, Model model){
 		Agente c = (Agente) session.getAttribute("loader");
 		if(c != null){
@@ -136,5 +136,5 @@ public class WebController {
 			return "view";	
 		}
 		return "error";
-	}
+	}*/
 }

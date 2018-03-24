@@ -35,12 +35,12 @@ public class Agente {
 	
 	public Agente() {}
 
-	public Agente(String nombre, String contrasena, String kindCode, String identificador, String latitud,
+	public Agente(String nombre, String contrasena, String kind, String identificador, String latitud,
 			String longitud, String email, String permisoEnvio) {
 		super();
 		this.nombre = nombre;
 		this.contrasena = contrasena;
-		this.kindCode = kindCode;
+		this.kind = kind;
 		this.identificador = identificador;
 		this.latitud = latitud;
 		this.longitud = longitud;

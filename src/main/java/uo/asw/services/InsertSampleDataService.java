@@ -17,7 +17,7 @@ public class InsertSampleDataService {
 	private AgentsService agenteService;
 	
 
-	@PostConstruct
+//	@PostConstruct
 	public void init() {
 		// Creación de agentes
 		Agente agente1 = new Agente("Agente1", "123456", "person", "Id1", "Lat1", "Lon1", "agente1@prueba.es","si"); 
@@ -44,7 +44,7 @@ public class InsertSampleDataService {
 
 	}
 	
-	@PreDestroy
+//	@PreDestroy
 	public void end() {
 		agenteService.deleteAll();
 	}

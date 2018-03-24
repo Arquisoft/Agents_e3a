@@ -7,17 +7,23 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public abstract class CSVLoader {
 	
 	private static final String SEPARATOR = ",";
 	private static final String RUTA = "src/main/resources/db/csv/kindCode.csv";
+	
+	private Map<String, String> keyCodes;
+	
 	
 	/**
 	 * Método para leer de un archivo csv
 	 * @return hashMap con la información del csv
 	 * @throws IOException
 	 */
-	public static Map<String, String> getKeyCodes() throws IOException {
+	private  Map<String, String> getKeyCodesFromCVS() throws IOException  {
 		BufferedReader br = null;
 		Map<String, String> keyCodes = new HashMap<String, String>();
 		
@@ -39,5 +45,14 @@ public abstract class CSVLoader {
 		}
 		return keyCodes;
 	}
+	
+	public Map<String, String> getKeyCodes() throws IOException {
+		keyCodes = getKeyCodesFromCVS();
+		return keyCodes;
+	}
+	
+	
+	
+	
 }
 

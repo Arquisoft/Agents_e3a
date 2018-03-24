@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import uo.asw.agents.util.Check;
 import uo.asw.dbManagement.LoaderDAO;
-import uo.asw.dbManagement.model.Loader;
+import uo.asw.dbManagement.model.Agent;
 
 @Controller
 public class WebController {
@@ -31,26 +31,6 @@ public class WebController {
 		return "log";
 	}
 
-	// @Autowired
-	// CitzenController cc;
-	//
-	// @RequestMapping(value = "/info", method = RequestMethod.GET, params = {
-	// "user", "password" })
-	// public ModelAndView showInfo(@RequestParam(value = "user") String
-	// username,
-	// @RequestParam(value = "password") String password) {
-	// Map<String, Object> mp = new HashMap<>();
-	// mp.put("login", username);
-	// mp.put("password", password);
-	// ResponseEntity<CitizenMin> c = cc.getCitzen(mp);
-	// if(c.getStatusCode()!=HttpStatus.OK)
-	// return new ModelAndView("error");
-	// ModelAndView mv = new ModelAndView("view");
-	// mv.addObject("name",c.getBody().getFirstName());
-	// mv.addObject("mail",c.getBody().getEmail());
-	// // TODO: añadir el resto de info del citizen.
-	// return mv;
-	// }
 
 	@Autowired
 	private LoaderDAO cc;
@@ -74,7 +54,7 @@ public class WebController {
 	public String showInfo(HttpSession session, @RequestParam String user, 
 			@RequestParam String password, @RequestParam String kind, Model model) throws IOException {
 
-		Loader c = null;
+		Agent c = null;
 
 		if (user != null && password != null && kind != null) {
 			c = cc.getAgent(user, password, kind);
@@ -115,10 +95,10 @@ public class WebController {
 	@RequestMapping(value = "/changeInfo", method = RequestMethod.POST)
 	public String changePassword(HttpSession session, @RequestParam String password, @RequestParam String newPassword,
 			Model model) {
-		Loader c = (Loader) session.getAttribute("loader");
+		Agent c = (Agent) session.getAttribute("loader");
 		if (c != null) {
-			if (c.getContraseña().equals(password) && !newPassword.isEmpty()) {
-				c.setContraseña(newPassword);
+			if (c.getContrasena().equals(password) && !newPassword.isEmpty()) {
+				c.setContrasena(newPassword);
 				cc.updateInfo(c);
 				model.addAttribute("resultado", "Contrasena actualizada correctamente");
 				return "view";
@@ -141,7 +121,7 @@ public class WebController {
 	 */
 	@RequestMapping(value = "/changeEmail", method = RequestMethod.POST)
 	public String changeEmail(HttpSession session, @RequestParam String email, Model model){
-		Loader c = (Loader) session.getAttribute("loader");
+		Agent c = (Agent) session.getAttribute("loader");
 		if(c != null){
 			if(!email.isEmpty() && Check.validateEmail(email)){
 				c.setEmail(email);

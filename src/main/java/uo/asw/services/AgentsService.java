@@ -1,34 +1,36 @@
-package uo.asw.agents.impl;
+package uo.asw.services;
 
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uo.asw.agents.AgentsService;
+import uo.asw.agents.util.CSVLoader;
 import uo.asw.agents.util.LoaderMin;
-import uo.asw.dbManagement.LoaderDAO;
 import uo.asw.dbManagement.model.Agent;
+import uo.asw.repository.AgentsRepository;
 
-/**
- * Created by Irazusta on 15/02/2017.
- */
 @Service
-public class AgentsServiceImpl implements AgentsService {
-	@Autowired
-	private LoaderDAO loaderDAO;
+public class AgentsService {
 
-	@Override
+	@Autowired
+    private AgentsRepository loaderRepository;
+	
+	@Autowired
+	private CSVLoader csvLoader;
+
+
 	public LoaderMin getAgentInfo(String login, String password, String kind) throws IOException {
-		Agent c = loaderDAO.getAgent(login, password, kind);
+		Agent c = loaderRepository.findByNombreAndContrasenaAndKind(login, password, kind);
 		if (c != null) {
+			c.setKindCode(csvLoader.getKeyCodes().get(c.getKind()));
 			return new LoaderMin(c.getNombre() , "\""+ c.getLatitud() +"\"N - \""+ c.getLongitud() +"\"W", c.getEmail(), c.getIdentificador(), c.getKind(), c.getKindCode());
 		}
 		return null;
 	}
 
-	@Override
-	public Agent changeInfo(Agent updatedData) {
-		return loaderDAO.updateInfo(updatedData);
-	}
+	
+//	public Agent changeInfo(Agent updatedData) {
+//		return loaderRepository.updateInfo(updatedData);
+//	}
 }

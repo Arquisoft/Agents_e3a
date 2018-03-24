@@ -20,7 +20,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import uo.asw.Application;
 import uo.asw.dbManagement.LoaderDAO;
-import uo.asw.dbManagement.model.Loader;
+import uo.asw.dbManagement.model.Agent;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -114,7 +114,7 @@ public class WebControllerTest {
    @Test
    public void changePasswordTest1() throws Exception {
    	
-	   Loader c = loaderDAO.getAgent("juan", "1234", "person");
+	   Agent c = loaderDAO.getAgent("juan", "1234", "person");
 
 	   //Cambio de contraseña
        mockMvc.perform(post("/changeInfo")
@@ -138,7 +138,7 @@ public class WebControllerTest {
    //Contraseña incorrecta
    public void changePasswordTest2() throws Exception {
    	
-	   Loader c = loaderDAO.getAgent("juan", "1234", "person");
+	   Agent c = loaderDAO.getAgent("juan", "1234", "person");
 
        mockMvc.perform(post("/changeInfo")
     	.param("password", "password")
@@ -151,7 +151,7 @@ public class WebControllerTest {
    @Test
    public void changeEmailTest1() throws Exception {
    	
-	   Loader c = loaderDAO.getAgent("juan", "1234", "person");
+	   Agent c = loaderDAO.getAgent("juan", "1234", "person");
 
 	   //Cambio de email
        mockMvc.perform(post("/changeEmail")

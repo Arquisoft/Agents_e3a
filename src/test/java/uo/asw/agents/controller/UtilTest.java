@@ -53,13 +53,13 @@ public class UtilTest {
 	
     @Before
     public void setUp() throws Exception {
-    	loaderMin = new LoaderMin("nombre", "localizacion","usuario@gmail.com",1L ,"kind","kindCode");
+    	loaderMin = new LoaderMin("nombre", "localizacion","usuario@gmail.com","1" ,"kind","kindCode");
     }
 
 	@Test
 	public void newCitizenMinTest() {
 		
-		Long id = (long) 2;
+		String id = "2";
 		String nombre = "fernando";
 //		String apellidos = "sanchez";
 //		Date fechaNacimiento = new Date();

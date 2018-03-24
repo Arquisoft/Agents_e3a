@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import uo.asw.agents.util.CSVLoader;
 import uo.asw.dbManagement.LoaderDAO;
-import uo.asw.dbManagement.model.Loader;
+import uo.asw.dbManagement.model.Agent;
 
 import java.io.IOException;
 import java.util.Date;
@@ -22,19 +22,18 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public class LoaderDAODummy implements LoaderDAO {
-	private static Loader dummyLoader;
+	private static Agent dummyLoader;
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	static {
-		dummyLoader = new Loader("pass", "dummy", "123456", "Clara", "Oswald", new Date(),
-				"clara@tardis.co.uk", "The Hyperspace", "Inglesa", "person", "43.362742", "-5.849348");
+		dummyLoader = new Agent();
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public Loader getAgent(String login, String password, String kind) throws IOException {
-		List<Loader> loader =  entityManager.createQuery(
+	public Agent getAgent(String login, String password, String kind) throws IOException {
+		List<Agent> loader =  entityManager.createQuery(
 				"from Loader where nombreUsuario = ?1 "
 						+ "and contraseña = ?2 "
 						+ "and kind = ?3")
@@ -45,20 +44,20 @@ public class LoaderDAODummy implements LoaderDAO {
 		if(loader.isEmpty())
 			return null;
 
-		loader.get(0).setKindCode(getKindCodes().get(kind));
+//		loader.get(0).setKindCode(getKindCodes().get(kind));
 		return loader.get(0);
 		// return dummyCitizen;
 	}
 
 	@Override
-	public Loader updateInfo(Loader toUpdate) {
+	public Agent updateInfo(Agent toUpdate) {
 		entityManager.merge(toUpdate);
         dummyLoader = toUpdate;
         return dummyLoader;
     }
     
 	
-	private Map<String,String> getKindCodes() throws IOException{
-		return CSVLoader.getKeyCodes();
-	}
+//	private Map<String,String> getKindCodes() throws IOException{
+//		return CSVLoader.getKeyCodes();
+//	}
 }

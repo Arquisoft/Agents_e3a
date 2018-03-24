@@ -1,26 +1,24 @@
 package uo.asw.agents.util;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
 
+@XmlRootElement(name = "min")
 public class LoaderMin {
 
 	private String name;
-	//private String lastName;
-	private Long id;
+	private String id;
 	private String location;
 	private String email;
-	//private int edad;
 	private String kind;
 	private String kindCode;
 	
 	
 	
-	public LoaderMin(String name, String location,  String email, Long id,
+	public LoaderMin(String name, String location,  String email, String id,
 			String kind, String kindCode) {
 		super();
 		this.name = name;
-//		this.lastName = lastName;
-//		this.edad = DateUtil.getYears(fechaNacimiento);
 		this.location = location;
 		this.email = email;
 		this.id = id;
@@ -42,13 +40,13 @@ public class LoaderMin {
 
 
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
 
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

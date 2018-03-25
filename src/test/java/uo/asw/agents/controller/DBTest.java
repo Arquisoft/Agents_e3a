@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+
 import uo.asw.Application;
 import uo.asw.model.Agente;
 import uo.asw.repository.AgentsRepository;
+import uo.asw.services.AgentsService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
@@ -20,13 +22,16 @@ public class DBTest {
 
 	
 	@Autowired
-    private AgentsRepository loaderDAO;
+    private AgentsRepository agentsRepository;
+	
+	@Autowired 
+	private AgentsService agentsService;
 	
 	@Test
     public void getExistingAgent() throws Exception {
-    	Agente c1 = loaderDAO.findByNombreAndContrasenaAndKind("juan", "1234", "person");
-    	Agente c2 = loaderDAO.findByNombreAndContrasenaAndKind("pedro", "1234", "sensor");
-    	Agente c3 = loaderDAO.findByNombreAndContrasenaAndKind("raul", "1234", "entity");
+    	Agente c1 = agentsRepository.findByNombreAndContrasenaAndKind("juan", "1234", "person");
+    	Agente c2 = agentsRepository.findByNombreAndContrasenaAndKind("pedro", "1234", "sensor");
+    	Agente c3 = agentsRepository.findByNombreAndContrasenaAndKind("raul", "1234", "entity");
 
 		assertEquals("juan", c1.getNombre());
 		assertEquals("1234", c1.getContrasena());
@@ -44,9 +49,9 @@ public class DBTest {
     
     @Test
     public void getNonExistingAgent() throws Exception {
-    	Agente c1 = loaderDAO.findByNombreAndContrasenaAndKind("antonio", "1234", "entity");
-    	Agente c2 = loaderDAO.findByNombreAndContrasenaAndKind("daniel", "1234", "sensor");
-    	Agente c3 = loaderDAO.findByNombreAndContrasenaAndKind("rodrigo", "1234", "person");
+    	Agente c1 = agentsRepository.findByNombreAndContrasenaAndKind("antonio", "1234", "entity");
+    	Agente c2 = agentsRepository.findByNombreAndContrasenaAndKind("daniel", "1234", "sensor");
+    	Agente c3 = agentsRepository.findByNombreAndContrasenaAndKind("rodrigo", "1234", "person");
 
     	assertNull(c1);
     	assertNull(c2);
@@ -57,9 +62,9 @@ public class DBTest {
     @Test
     public void wrongPasswordTest() throws Exception {
     	
-    	Agente c1 = loaderDAO.findByNombreAndContrasenaAndKind("juan", "password", "person");
-    	Agente c2 = loaderDAO.findByNombreAndContrasenaAndKind("pedro", "password", "entity");
-    	Agente c3 = loaderDAO.findByNombreAndContrasenaAndKind("raul", "password", "sensor");
+    	Agente c1 = agentsRepository.findByNombreAndContrasenaAndKind("juan", "password", "person");
+    	Agente c2 = agentsRepository.findByNombreAndContrasenaAndKind("pedro", "password", "entity");
+    	Agente c3 = agentsRepository.findByNombreAndContrasenaAndKind("raul", "password", "sensor");
     	
     	assertNull(c1);
     	assertNull(c2);
@@ -69,9 +74,9 @@ public class DBTest {
     @Test
     public void wrongUserNameTest() throws Exception {
     	
-    	Agente c1 = loaderDAO.findByNombreAndContrasenaAndKind("juan@gmail.com", "1234", "person");
-    	Agente c2 = loaderDAO.findByNombreAndContrasenaAndKind("pedro@gmail.com", "1234", "entity");
-    	Agente c3 = loaderDAO.findByNombreAndContrasenaAndKind("raul@gmail.com", "1234", "sensor");
+    	Agente c1 = agentsRepository.findByNombreAndContrasenaAndKind("juan@gmail.com", "1234", "person");
+    	Agente c2 = agentsRepository.findByNombreAndContrasenaAndKind("pedro@gmail.com", "1234", "entity");
+    	Agente c3 = agentsRepository.findByNombreAndContrasenaAndKind("raul@gmail.com", "1234", "sensor");
     	
     	assertNull(c1);
     	assertNull(c2);
@@ -81,9 +86,9 @@ public class DBTest {
     @Test
     public void wrongUserTypeTest() throws Exception {
     	
-    	Agente c1 = loaderDAO.findByNombreAndContrasenaAndKind("juan", "1234", "entity");
-    	Agente c2 = loaderDAO.findByNombreAndContrasenaAndKind("pedro", "1234", "person");
-    	Agente c3 = loaderDAO.findByNombreAndContrasenaAndKind("raul", "1234", "sensor");
+    	Agente c1 = agentsRepository.findByNombreAndContrasenaAndKind("juan", "1234", "entity");
+    	Agente c2 = agentsRepository.findByNombreAndContrasenaAndKind("pedro", "1234", "person");
+    	Agente c3 = agentsRepository.findByNombreAndContrasenaAndKind("raul", "1234", "sensor");
     	
     	assertNull(c1);
     	assertNull(c2);
@@ -93,20 +98,20 @@ public class DBTest {
     @Test
     public void updateTest() throws Exception {
     	
-    	Agente c1 = loaderDAO.findByNombreAndContrasenaAndKind("juan", "1234", "person");
-    	/*
+    	Agente c1 = agentsRepository.findByNombreAndContrasenaAndKind("juan", "1234", "person");
+    	
     	//Cambio de contraseña
-    	c1.setContraseña("new password");
-       	loaderDAO.updateInfo(c1);
+    	c1.setContrasena("new password");
+    	agentsService.addAgente(c1);
        
-       	assertEquals("new password", c1.getContraseña());
+       	assertEquals("new password", c1.getContrasena());
        	
        	//Cambio de contraseña por la original
-       	c1.setContraseña("1234");
-       	loaderDAO.updateInfo(c1);
+       	c1.setContrasena("1234");
+       	agentsService.addAgente(c1);
        	
-       	assertEquals("1234", c1.getContraseña());
-	*/
+       	assertEquals("1234", c1.getContrasena());
+	
         	
     }
 

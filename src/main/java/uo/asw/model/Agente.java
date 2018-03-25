@@ -9,8 +9,6 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
 
 @Document(collection = "agents")
 public class Agente {

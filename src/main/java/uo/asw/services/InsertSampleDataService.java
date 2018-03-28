@@ -2,6 +2,8 @@ package uo.asw.services;
 
 
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +41,13 @@ public class InsertSampleDataService {
 		agenteService.addAgente(agente7);
 		agenteService.addAgente(agente8);
 		agenteService.addAgente(agente9);
-
+		
+		Agente sensorDeServidores = new Agente("S1", "123456", "sensor", "S1", "Lat6", "Lon6", "S1@sensores.es","si");
+		agenteService.addAgente(sensorDeServidores);
+		
+		Agente sensorDeZoo = new Agente("S2", "123456", "sensor", "S2", "Lat6", "Lon6", "S2@sensores.es","si");
+		agenteService.addAgente(sensorDeZoo);
+		
 	}
 	
 //	@PreDestroy

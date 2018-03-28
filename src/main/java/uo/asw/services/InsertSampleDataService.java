@@ -48,6 +48,9 @@ public class InsertSampleDataService {
 		Agente sensorDeZoo = new Agente("S2", "123456", "sensor", "S2", "Lat6", "Lon6", "S2@sensores.es","si");
 		agenteService.addAgente(sensorDeZoo);
 		
+		Agente sensorDeContaminacion = new Agente("S3", "123456", "sensor", "S3", "Lat6", "Lon6", "S3@sensores.es","si");
+		agenteService.addAgente(sensorDeContaminacion);
+		
 	}
 	
 //	@PreDestroy

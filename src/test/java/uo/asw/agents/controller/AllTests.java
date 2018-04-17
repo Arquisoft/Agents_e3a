@@ -10,6 +10,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	LoaderControllerTest.class,
 	DBTest.class,
 	UtilTest.class,
-	WebControllerTest.class
+	WebControllerTest.class,
+	AgenteTest.class
 })
 public class AllTests { }

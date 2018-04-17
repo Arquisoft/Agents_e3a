@@ -48,4 +48,8 @@ public class AgentsService {
 	public void deleteAll() {
 		agentsRepository.deleteAll();
 	}
+	
+	public void deleteAgente(Agente agent) {
+		agentsRepository.delete(agent);
+	}
 }

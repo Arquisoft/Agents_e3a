@@ -114,5 +114,26 @@ public class DBTest {
 	
         	
     }
+    
+    @Test
+    public void dbTest() throws Exception {
+    	Agente a1 = new Agente("nombre1", "contraseña1", "person", "identificador1", 
+				"latitud1", "longitud1", "email1@prueba.es", "si");
+    	agentsService.addAgente(a1);
+    	
+    	Agente a2 = agentsRepository.findByNombreAndContrasenaAndKind("nombre1", 
+    			"contraseña1", "person");
+    	assertEquals(a1.getNombre(), a2.getNombre());
+    	assertEquals(a1.getContrasena(), a2.getContrasena());
+    	assertEquals(a1.getKind(), a2.getKind());
+    	
+    	agentsService.deleteAgente(a1);
+    	
+    	a2 = agentsRepository.findByNombreAndContrasenaAndKind("nombre1", 
+    			"contraseña1", "person");
+    	
+    	assertNull(a2);
+    	
+    }
 
 }

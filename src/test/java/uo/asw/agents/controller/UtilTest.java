@@ -89,6 +89,25 @@ public class UtilTest {
 		
 	}
 	
+	@Test
+	public void loaderMinTest() {
+		LoaderMin lm1 = new LoaderMin("nombre1", "localizacion1",  "email1@prueba.es",
+				"id1", "person", "1");
+		assertEquals("nombre1", lm1.getName());
+		assertEquals("localizacion1", lm1.getLocation());
+		assertEquals("email1@prueba.es", lm1.getEmail());
+		assertEquals("id1", lm1.getId());
+		assertEquals("person", lm1.getKind());
+		assertEquals("1", lm1.getKindCode());
+		
+		LoaderMin lm2 = lm1;
+		assertTrue(lm1.equals(lm2));
+		String s1 = lm1.toString();
+		String s2 = lm2.toString();
+		assertTrue(s1.equals(s2));
+		
+	}
+	
 	
 	@Test
 	public void dateUtilTest() throws ParseException {

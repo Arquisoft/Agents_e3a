@@ -1,6 +1,7 @@
 package uo.asw.agents.controller;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -55,6 +56,10 @@ public class AgenteTest {
 		String s2 = a2.toString();
 		
 		assertTrue(s1.equals(s2));
+		
+		Agente a3 = new Agente("nombre1", "contraseña1", "person", "identificador1", 
+				"latitud1", "longitud1", "email1@prueba.es", "si");
+		assertFalse(a1.equals(a3));
 		
 			
 	}

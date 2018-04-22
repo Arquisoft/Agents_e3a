@@ -1,8 +1,11 @@
 package uo.asw.agents.controller;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -12,14 +15,16 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import uo.asw.Application;
+import uo.asw.agents.util.CSVLoader;
 import uo.asw.agents.util.Check;
-import uo.asw.agents.util.LoaderMin;
 import uo.asw.agents.util.DateUtil;
+import uo.asw.agents.util.LoaderMin;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,6 +32,8 @@ import uo.asw.agents.util.DateUtil;
 @WebAppConfiguration
 public class UtilTest {
 
+	@Autowired
+	private CSVLoader csvLoader;
 	
 	private static String[] validEmails, invalidEmails;
 	private LoaderMin loaderMin;
@@ -147,4 +154,26 @@ public class UtilTest {
         }
  
     }
+    
+    /**
+     * CSVLoader
+     * @throws IOException 
+     */
+    
+    @Test
+    public void getKeyCodesNoFicheroTest() {
+    	try {
+			csvLoader.getKeyCodes("no_ruta");
+			fail ("Se esperaba excepcion");
+		} catch (IOException e) {}
+    	
+    }
+    
+    
+    @Test
+    public void getRutaPorDefectoTest() {
+    	assertEquals("src/main/resources/db/csv/kindCode.csv", csvLoader.getRutaPorDefecto());
+    }
+    
+    
 }

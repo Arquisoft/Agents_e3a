@@ -23,7 +23,7 @@ public class AgentsService {
 	public LoaderMin getAgentInfo(String login, String password, String kind) throws IOException {
 		Agente c = agentsRepository.findByNombreAndContrasenaAndKind(login, password, kind);
 		if (c != null) {
-			c.setKindCode(csvLoader.getKeyCodes().get(c.getKind()));
+			c.setKindCode(csvLoader.getKeyCodes(csvLoader.getRutaPorDefecto()).get(c.getKind()));
 			return new LoaderMin(c.getNombre() , "\""+ c.getLatitud() +"\"N - \""+ c.getLongitud() +"\"W", c.getEmail(), c.getIdentificador(), c.getKind(), c.getKindCode());
 		}
 		return null;
@@ -35,7 +35,7 @@ public class AgentsService {
 	public Agente getAgent(String user, String password, String kind) throws IOException {
 		Agente c = agentsRepository.findByNombreAndContrasenaAndKind(user, password, kind);
 		if(c == null) return null;
-		c.setKindCode(csvLoader.getKeyCodes().get(c.getKind()));
+		c.setKindCode(csvLoader.getKeyCodes(csvLoader.getRutaPorDefecto()).get(c.getKind()));
 		return c;
 	}
 

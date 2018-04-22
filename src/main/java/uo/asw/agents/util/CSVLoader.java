@@ -23,12 +23,13 @@ public class CSVLoader {
 	 * @return hashMap con la información del csv
 	 * @throws IOException
 	 */
-	private  Map<String, String> getKeyCodesFromCVS() throws IOException  {
+	private  Map<String, String> getKeyCodesFromCVS(String ruta) 
+			throws IOException  {
 		BufferedReader br = null;
 		Map<String, String> keyCodes = new HashMap<String, String>();
 		
 		try {
-			br = new BufferedReader(new FileReader(RUTA));
+			br = new BufferedReader(new FileReader(ruta));
 			String line = br.readLine();
 			while (line!=null) {
 				String[] fields = line.split(SEPARATOR);
@@ -46,12 +47,14 @@ public class CSVLoader {
 		return keyCodes;
 	}
 	
-	public Map<String, String> getKeyCodes() throws IOException {
-		keyCodes = getKeyCodesFromCVS();
+	public Map<String, String> getKeyCodes(String ruta) throws IOException {
+		keyCodes = getKeyCodesFromCVS(ruta);
 		return keyCodes;
 	}
 	
-	
+	public String getRutaPorDefecto() {
+		return this.RUTA;
+	}
 	
 	
 }

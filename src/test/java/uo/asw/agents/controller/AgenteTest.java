@@ -1,6 +1,7 @@
 package uo.asw.agents.controller;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -26,7 +27,36 @@ public class AgenteTest {
 		a1.setPermisoEnvio("no");
 		assertEquals("no", a1.getPermisoEnvio());
 		
+		a1.setNombre("nombre2");
+		assertEquals("nombre2", a1.getNombre());
 		
+		a1.setContrasena("contraseña2");
+		assertEquals("contraseña2", a1.getContrasena());
+		
+		a1.setKind("sensor");
+		assertEquals("sensor", a1.getKind());
+		
+		a1.setIdentificador("identificador2");
+		assertEquals("identificador2", a1.getIdentificador());
+		
+		a1.setLatitud("latitud2");
+		assertEquals("latitud2", a1.getLatitud());
+		
+		a1.setEmail("email2@prueba.es");
+		assertEquals("email2@prueba.es", a1.getEmail());
+		
+		a1.setLongitud("longitud2");
+		assertEquals("longitud2", a1.getLongitud());
+		
+		Agente a2 = a1;
+		assertTrue(a1.equals(a2));
+		
+		String s1 = a1.toString();
+		String s2 = a2.toString();
+		
+		assertTrue(s1.equals(s2));
+		
+			
 	}
-
+	
 }

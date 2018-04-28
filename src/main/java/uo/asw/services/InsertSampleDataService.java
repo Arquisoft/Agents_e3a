@@ -16,7 +16,7 @@ public class InsertSampleDataService {
 	
 
 //	@PostConstruct
-	public void init() {
+	/*public void init() {
 		// Creación de agentes
 		Agente agente1 = new Agente("Agente1", "123456", "person", "Id1", "Lat1", "Lon1", "agente1@prueba.es","si"); 
 		Agente agente2 = new Agente("Agente2", "123456", "person", "Id2", "Lat2", "Lon2", "agente2@prueba.es","si");
@@ -27,10 +27,10 @@ public class InsertSampleDataService {
 		
 		Agente agente7 = new Agente("juan", "1234", "person", "Id7", "Lat5", "Lon5", "juan@gmail.com","si");
 		Agente agente8 = new Agente("pedro", "1234", "sensor", "Id8", "Lat6", "Lon6", "pedro@gmail.com","si");
-		Agente agente9 = new Agente("raul", "1234", "entity", "Id8", "Lat6", "Lon6", "raul@gmail.com","si");
+		Agente agente9 = new Agente("raul", "1234", "entity", "Id9", "Lat6", "Lon6", "raul@gmail.com","si");
 		
 		// Guardado de agentes
-		agenteService.addAgente(agente1);
+		/*agenteService.addAgente(agente1);
 		agenteService.addAgente(agente2);
 		agenteService.addAgente(agente3);
 		agenteService.addAgente(agente4);
@@ -47,12 +47,12 @@ public class InsertSampleDataService {
 		agenteService.addAgente(sensorDeZoo);
 		
 		Agente sensorDeContaminacion = new Agente("S3", "123456", "sensor", "S3", "Lat6", "Lon6", "S3@sensores.es","si");
-		agenteService.addAgente(sensorDeContaminacion);
+		agenteService.addAgente(sensorDeContaminacion); 
 		
-	}
+	} */
 	
 //	@PreDestroy
-	public void end() {
+	/*public void end() {
 		agenteService.deleteAll();
-	}
+	}*/
 }

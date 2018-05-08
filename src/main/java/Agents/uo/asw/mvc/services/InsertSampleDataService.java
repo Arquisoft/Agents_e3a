@@ -1,4 +1,4 @@
-package uo.asw.services;
+package Agents.uo.asw.mvc.services;
 
 
 
@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uo.asw.model.Agente;
+import Agents.uo.asw.mvc.model.Agente;
 
 
 @Service

@@ -1,4 +1,4 @@
-package uo.asw.controllers;
+package Agents.uo.asw.mvc.controllers;
 
 import java.io.IOException;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import uo.asw.agents.util.Check;
-import uo.asw.model.Agente;
-import uo.asw.services.AgentsService;
+import Agents.uo.asw.agents.util.Check;
+import Agents.uo.asw.mvc.model.Agente;
+import Agents.uo.asw.mvc.services.AgentsService;
 
 @Controller
 public class WebController {

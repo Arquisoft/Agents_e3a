@@ -20,11 +20,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import uo.asw.Application;
-import uo.asw.agents.util.CSVLoader;
-import uo.asw.agents.util.Check;
-import uo.asw.agents.util.DateUtil;
-import uo.asw.agents.util.LoaderMin;
+import Agents.uo.asw.Application;
+import Agents.uo.asw.agents.util.CSVLoader;
+import Agents.uo.asw.agents.util.Check;
+import Agents.uo.asw.agents.util.DateUtil;
+import Agents.uo.asw.agents.util.LoaderMin;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

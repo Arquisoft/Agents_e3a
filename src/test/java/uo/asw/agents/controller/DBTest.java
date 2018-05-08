@@ -9,10 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import uo.asw.Application;
-import uo.asw.model.Agente;
-import uo.asw.repository.AgentsRepository;
-import uo.asw.services.AgentsService;
+import Agents.uo.asw.Application;
+import Agents.uo.asw.mvc.model.Agente;
+import Agents.uo.asw.mvc.repository.AgentsRepository;
+import Agents.uo.asw.mvc.services.AgentsService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)

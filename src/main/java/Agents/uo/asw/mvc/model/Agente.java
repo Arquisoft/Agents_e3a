@@ -1,4 +1,4 @@
-package uo.asw.model;
+package Agents.uo.asw.mvc.model;
 
 
 import javax.persistence.Column;

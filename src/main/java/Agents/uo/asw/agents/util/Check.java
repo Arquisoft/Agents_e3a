@@ -1,4 +1,4 @@
-package uo.asw.agents.util;
+package Agents.uo.asw.agents.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

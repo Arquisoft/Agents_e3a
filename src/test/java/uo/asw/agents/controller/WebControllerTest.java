@@ -18,9 +18,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import uo.asw.Application;
-import uo.asw.model.Agente;
-import uo.asw.repository.AgentsRepository;
+import Agents.uo.asw.Application;
+import Agents.uo.asw.mvc.model.Agente;
+import Agents.uo.asw.mvc.repository.AgentsRepository;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

@@ -1,14 +1,14 @@
-package uo.asw.services;
+package Agents.uo.asw.mvc.services;
 
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uo.asw.agents.util.CSVLoader;
-import uo.asw.agents.util.LoaderMin;
-import uo.asw.model.Agente;
-import uo.asw.repository.AgentsRepository;
+import Agents.uo.asw.agents.util.CSVLoader;
+import Agents.uo.asw.agents.util.LoaderMin;
+import Agents.uo.asw.mvc.model.Agente;
+import Agents.uo.asw.mvc.repository.AgentsRepository;
 
 @Service
 public class AgentsService {
@@ -22,7 +22,7 @@ public class AgentsService {
 
 	public LoaderMin getAgentInfo(String login, String password, String kind) throws IOException {
 		Agente c = agentsRepository.findByNombreAndContrasenaAndKind(login, password, kind);
-		if (c != null) {
+		if (c != null && c.getPermisoEnvio().equals("si")) {
 			c.setKindCode(csvLoader.getKeyCodes(csvLoader.getRutaPorDefecto()).get(c.getKind()));
 			return new LoaderMin(c.getNombre() , "\""+ c.getLatitud() +"\"N - \""+ c.getLongitud() +"\"W", c.getEmail(), c.getIdentificador(), c.getKind(), c.getKindCode());
 		}

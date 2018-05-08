@@ -1,4 +1,4 @@
-package uo.asw.controllers;
+package Agents.uo.asw.mvc.controllers;
 
 
 import java.io.IOException;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import uo.asw.agents.util.LoaderMin;
-import uo.asw.services.AgentsService;
+import Agents.uo.asw.agents.util.LoaderMin;
+import Agents.uo.asw.mvc.services.AgentsService;
 
 @RestController
 public class AgentsController {
@@ -27,10 +27,6 @@ public class AgentsController {
 			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	public ResponseEntity<LoaderMin> getLoader(@RequestBody Map<String, Object> payload) 
 			throws IOException {
-		//if(!payload.keySet().containsAll(Arrays.asList("login", "password"))){
-		//	return new ResponseEntity<CitizenMin>(HttpStatus.BAD_REQUEST);
-		//}
-
 		String login;
 		String password;
 		String kind;

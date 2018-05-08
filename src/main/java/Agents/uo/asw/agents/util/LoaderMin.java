@@ -1,4 +1,4 @@
-package uo.asw.agents.util;
+package Agents.uo.asw.agents.util;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

@@ -1,4 +1,4 @@
-package uo.asw.repository;
+package Agents.uo.asw.mvc.repository;
 
 
 
@@ -6,8 +6,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-
-import uo.asw.model.Agente;
+import Agents.uo.asw.mvc.model.Agente;
 
 @Repository
 public interface AgentsRepository extends MongoRepository<Agente, ObjectId> {

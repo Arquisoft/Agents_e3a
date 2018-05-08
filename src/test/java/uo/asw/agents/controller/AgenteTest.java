@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import uo.asw.model.Agente;
+import Agents.uo.asw.mvc.model.Agente;
 
 public class AgenteTest {
 	
